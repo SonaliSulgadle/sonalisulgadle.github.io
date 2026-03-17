@@ -120,6 +120,8 @@ const Contact = () => {
           </a>
           <a
             href="mailto:sonali.sulgadle@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-12 h-12 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:bg-primary-foreground/10 transition-colors"
             aria-label="Email"
           >
