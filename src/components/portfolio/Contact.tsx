@@ -82,8 +82,8 @@ const Contact = () => {
             >
               <a
                 href={link.href}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 px-6"
               >
                 <link.icon size={20} />
@@ -120,6 +120,8 @@ const Contact = () => {
           </a>
           <a
             href="mailto:sonali.sulgadle@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-12 h-12 rounded-full border border-primary-foreground/20 flex items-center justify-center hover:bg-primary-foreground/10 transition-colors"
             aria-label="Email"
           >

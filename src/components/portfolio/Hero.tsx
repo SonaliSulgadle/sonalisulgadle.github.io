@@ -31,8 +31,8 @@ const Hero = () => {
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           {t(
-            "Android Developer with 8+ years building scalable mobile applications",
-            "8년 이상의 경력을 가진 안드로이드 개발자, 확장 가능한 모바일 애플리케이션 구축 전문"
+            "Android Developer with around 8 years of experience building scalable mobile applications",
+            "확장 가능한 모바일 애플리케이션을 개발해 온 약 8년 경력의 안드로이드 개발자"
           )}
         </motion.p>
         <motion.div
