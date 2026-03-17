@@ -1,6 +1,7 @@
 import { useLang } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import { ArrowDown, FileDown } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const Hero = () => {
   const { t } = useLang();
