@@ -1,31 +1,9 @@
 import { useLang } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, MapPin } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const Contact = () => {
   const { t } = useLang();
-
-  const contactLinks = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "sonali.sulgadle@gmail.com",
-      href: "mailto:sonali.sulgadle@gmail.com",
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      value: "linkedin.com/in/sonali-sulgadle-01b04a118",
-      href: "https://www.linkedin.com/in/sonali-sulgadle-01b04a118",
-    },
-    {
-      icon: Github,
-      label: "GitHub",
-      value: "github.com/SonaliSulgadle",
-      href: "https://github.com/SonaliSulgadle",
-    },
-  ];
 
   return (
     <footer id="contact" className="py-20 bg-primary text-primary-foreground">
