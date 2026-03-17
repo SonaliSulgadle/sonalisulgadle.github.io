@@ -70,27 +70,38 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10"
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10"
         >
-          {contactLinks.map((link) => (
-            <Button
-              key={link.label}
-              variant="outline"
-              size="lg"
-              asChild
-              className="border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 hover:border-primary-foreground/50 w-full sm:w-auto"
-            >
-              <a
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 px-6"
-              >
-                <link.icon size={20} />
-                <span className="font-medium">{link.label}</span>
-              </a>
-            </Button>
-          ))}
+          <a
+            href="mailto:sonali.sulgadle@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+            className="text-primary-foreground hover:text-primary-foreground/80 transition-colors"
+          >
+            <Mail size={20} />
+            <span>Email</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/sonali-sulgadle-01b04a118"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+            className="text-primary-foreground hover:text-primary-foreground/80 transition-colors"
+          >
+            <Linkedin size={20} />
+            <span>LinkedIn</span>
+          </a>
+          <a
+            href="https://github.com/SonaliSulgadle"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+            className="text-primary-foreground hover:text-primary-foreground/80 transition-colors"
+          >
+            <Github size={20} />
+            <span>GitHub</span>
+          </a>
         </motion.div>
 
         <motion.div
