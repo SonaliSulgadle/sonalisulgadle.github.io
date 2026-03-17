@@ -1,6 +1,5 @@
 import { useLang } from "@/context/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
-import { User } from "lucide-react";
 
 const About = () => {
   const { lang, t } = useLang();
