@@ -1,6 +1,7 @@
 import { useLang } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import { ArrowDown, FileDown } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const Hero = () => {
   const { t } = useLang();
@@ -48,13 +49,21 @@ const Hero = () => {
             <ArrowDown size={18} />
             {t("View Projects", "프로젝트 보기")}
           </a>
-          <a
-            href="#"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg border border-primary text-primary font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
-          >
-            <FileDown size={18} />
-            {t("Download Resume", "이력서 다운로드")}
-          </a>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <span
+                  className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg border border-muted-foreground/40 text-muted-foreground font-medium cursor-not-allowed opacity-60"
+                >
+                  <FileDown size={18} />
+                  {t("Download Resume", "이력서 다운로드")}
+                </span>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>{t("Resume coming soon", "이력서 준비 중")}</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </motion.div>
       </div>
     </section>
