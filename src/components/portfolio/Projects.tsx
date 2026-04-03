@@ -113,7 +113,7 @@ const projects: Project[] = [
     ],
     tech: ["Kotlin", "Jetpack Compose", "Gemini AI", "Retrofit", "Room", "Hilt", "Flow", "Clean Architecture"],
     github: "https://github.com/SonaliSulgadle",
-    inProgress: true,
+    
   },
 ];
 
