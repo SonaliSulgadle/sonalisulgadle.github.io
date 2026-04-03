@@ -8,17 +8,17 @@ const Hero = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
-      {/* Subtle gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-sky-light/40" />
+      {/* Gradient background — soft blue tint, top-left to bottom-right */}
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #eef2ff 50%, #e8eeff 100%)' }} />
 
-      {/* Radial glow behind name */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-accent/[0.06] rounded-full blur-[100px] pointer-events-none" />
+      {/* Radial glow / spotlight behind name */}
+      <div className="absolute top-[42%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full blur-[90px] pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.10) 0%, rgba(99,102,241,0.04) 60%, transparent 100%)' }} />
 
-      {/* Developer-themed background texture */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-        <pre className="text-primary/[0.03] text-[14px] leading-relaxed font-mono whitespace-pre tracking-wide">
+      {/* Developer-themed background texture — offset to top-right */}
+      <div className="absolute top-[15%] right-[8%] pointer-events-none select-none overflow-hidden">
+        <pre className="text-primary/[0.09] text-[15px] leading-relaxed font-mono whitespace-pre tracking-wide blur-[0.4px]">
 {`class AndroidDeveloper {
-    val experience = "8 years"
+    val experience = "~8 years"
     val architecture = "Clean + MVVM"
     
     fun build(): Application {
