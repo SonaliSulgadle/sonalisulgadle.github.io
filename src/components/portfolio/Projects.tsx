@@ -195,7 +195,10 @@ const Projects = () => {
                         {lang === "en" ? p.name : p.nameKo}
                       </h3>
                       {p.inProgress && (
-                        <Badge variant="secondary" className="text-xs">
+                        <Badge
+                          variant="outline"
+                          className="text-xs border-amber-500/50 bg-amber-500/10 text-amber-700 dark:text-amber-400"
+                        >
                           🚧 {t("In Progress", "개발 중")}
                         </Badge>
                       )}
