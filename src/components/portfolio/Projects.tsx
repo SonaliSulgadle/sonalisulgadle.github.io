@@ -113,7 +113,41 @@ const projects: Project[] = [
     ],
     tech: ["Kotlin", "Jetpack Compose", "Gemini AI", "Retrofit", "Room", "Hilt", "Flow", "Clean Architecture"],
     github: "https://github.com/SonaliSulgadle",
-    
+  },
+  {
+    name: "Puri (풀이) — Daily Life Solver for Foreigners in Korea",
+    nameKo: "Puri (풀이) — 한국 거주 외국인을 위한 생활 해결사",
+    desc: {
+      en: "A production-ready Android app that helps foreigners in South Korea navigate daily life confusion — from trash sorting and appliance instructions to transport and medical clinics — using AI-powered photo and text analysis with structured, step-by-step guidance. Currently in active development targeting Google Play Store release.",
+      ko: "쓰레기 분리수거, 가전제품 사용법, 교통, 병원 등 한국 거주 외국인이 일상에서 겪는 혼란을 AI 기반 사진 및 텍스트 분석과 단계별 가이드로 해결해주는 프로덕션 수준의 Android 앱입니다. 현재 Google Play Store 출시를 목표로 활발히 개발 중입니다.",
+    },
+    highlights: [
+      "Jetpack Compose UI with custom animations, shimmer loading, and dark/light theme",
+      "Clean Architecture: Domain / Data / Presentation layer separation with MVI pattern",
+      "Gemini 2.5 Flash Lite via Retrofit with exponential backoff retry and structured prompt engineering",
+      "AI extracts and translates all visible Korean text in captured images",
+      "CameraX integration with FileProvider for photo capture",
+      "Room database with migrations, Kotlin Flow for reactive UI",
+      "Hilt dependency injection across all layers",
+      "Pre-bundled offline guides for 12 essential daily life situations (trash, transit, medical, appliances and more)",
+      "Full unit test coverage across UseCases, ViewModels, Parser, and Serializers",
+      "Onboarding flow with HorizontalPager swipe gestures",
+    ],
+    highlightsKo: [
+      "커스텀 애니메이션, 시머 로딩, 다크/라이트 테마가 적용된 Jetpack Compose UI",
+      "Clean Architecture: MVI 패턴으로 Domain / Data / Presentation 레이어 분리",
+      "지수 백오프 재시도 및 구조화된 프롬프트 엔지니어링이 적용된 Retrofit 기반 Gemini 2.5 Flash Lite",
+      "촬영한 이미지 내 모든 한국어 텍스트를 AI가 추출 및 번역",
+      "FileProvider를 활용한 CameraX 사진 촬영 통합",
+      "마이그레이션이 적용된 Room 데이터베이스 및 반응형 UI를 위한 Kotlin Flow",
+      "전 레이어에 걸친 Hilt 의존성 주입",
+      "12가지 필수 일상 상황(쓰레기, 교통, 의료, 가전 등)을 위한 오프라인 가이드 사전 번들링",
+      "UseCases, ViewModels, Parser, Serializers 전반의 전체 단위 테스트 커버리지",
+      "HorizontalPager 스와이프 제스처를 활용한 온보딩 플로우",
+    ],
+    tech: ["Kotlin", "Jetpack Compose", "Gemini AI", "CameraX", "Retrofit", "Room", "Hilt", "MVI", "Clean Architecture"],
+    github: "https://github.com/SonaliSulgadle/puri-android",
+    inProgress: true,
   },
 ];
 
@@ -161,7 +195,10 @@ const Projects = () => {
                         {lang === "en" ? p.name : p.nameKo}
                       </h3>
                       {p.inProgress && (
-                        <Badge variant="secondary" className="text-xs">
+                        <Badge
+                          variant="outline"
+                          className="text-xs border-amber-500/50 bg-amber-500/10 text-amber-700 dark:text-amber-400"
+                        >
                           🚧 {t("In Progress", "개발 중")}
                         </Badge>
                       )}
