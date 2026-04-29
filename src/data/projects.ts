@@ -209,6 +209,7 @@ export const projects: ProjectData[] = [
     tech: ["Kotlin", "Jetpack Compose", "Firebase", "Coroutines", "Flow", "Clean Architecture"],
     github: "https://github.com/SonaliSulgadle/task-manager-pro",
     cover: task2,
+    placeholderTag: "Real-time",
     gallery: [task1, task2, task3],
     role: {
       en: "Sole Android engineer — auth flow, Firestore data layer, and Compose UI.",
