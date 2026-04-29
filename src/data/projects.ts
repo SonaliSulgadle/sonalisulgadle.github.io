@@ -21,6 +21,8 @@ export interface ProjectData {
   cover?: string;
   coverPlaceholder?: "engine" | "comingSoon";
   coverLabel?: { en: string; ko: string };
+  /** Short tag shown on the placeholder thumbnail, e.g. "AI-powered", "Real-time" */
+  placeholderTag?: string;
   gallery: string[];
   role: { en: string; ko: string };
   challenges: { en: string[]; ko: string[] };
