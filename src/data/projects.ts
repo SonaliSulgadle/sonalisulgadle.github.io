@@ -111,6 +111,7 @@ export const projects: ProjectData[] = [
     tech: ["Kotlin", "Jetpack Compose", "Gemini AI", "Retrofit", "Room", "Hilt", "Flow", "Clean Architecture"],
     github: "https://github.com/SonaliSulgadle/expense-tracker-android",
     cover: expense1,
+    placeholderTag: "AI-powered",
     gallery: [expense1, expense3, expense4, expenseGif],
     role: {
       en: "Sole Android engineer — designed the architecture, AI classification pipeline, custom Compose charts, and full test suite.",
