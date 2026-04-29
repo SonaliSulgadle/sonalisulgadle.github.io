@@ -257,6 +257,7 @@ export const projects: ProjectData[] = [
     tech: ["Kotlin", "MVVM", "Clean Architecture"],
     github: "https://github.com/SonaliSulgadle/quick-notes-plus",
     cover: notes1,
+    placeholderTag: "Compose UI",
     gallery: [notes1, notes2, notes3],
     role: {
       en: "Sole Android engineer — designed the architecture and screen states.",
