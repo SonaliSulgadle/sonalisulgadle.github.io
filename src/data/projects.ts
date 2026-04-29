@@ -161,6 +161,7 @@ export const projects: ProjectData[] = [
     github: "https://github.com/SonaliSulgadle/camera-filter-engine",
     coverPlaceholder: "engine",
     coverLabel: { en: "Core Engine / No UI", ko: "코어 엔진 / UI 없음" },
+    placeholderTag: "Core Engine",
     gallery: [],
     role: {
       en: "Engine author — focused on the image pipeline, threading model, and zero-copy buffer handling.",
