@@ -21,6 +21,8 @@ export interface ProjectData {
   cover?: string;
   coverPlaceholder?: "engine" | "comingSoon";
   coverLabel?: { en: string; ko: string };
+  /** Short tag shown on the placeholder thumbnail, e.g. "AI-powered", "Real-time" */
+  placeholderTag?: string;
   gallery: string[];
   role: { en: string; ko: string };
   challenges: { en: string[]; ko: string[] };
@@ -59,6 +61,7 @@ export const projects: ProjectData[] = [
     github: "https://github.com/SonaliSulgadle/puri-android",
     coverPlaceholder: "comingSoon",
     coverLabel: { en: "Visuals coming soon", ko: "비주얼 준비 중" },
+    placeholderTag: "AI-powered",
     gallery: [],
     role: {
       en: "Sole Android engineer — owning architecture, AI integration, UX design, and Play Store release preparation.",
@@ -108,6 +111,7 @@ export const projects: ProjectData[] = [
     tech: ["Kotlin", "Jetpack Compose", "Gemini AI", "Retrofit", "Room", "Hilt", "Flow", "Clean Architecture"],
     github: "https://github.com/SonaliSulgadle/expense-tracker-android",
     cover: expense1,
+    placeholderTag: "AI-powered",
     gallery: [expense1, expense3, expense4, expenseGif],
     role: {
       en: "Sole Android engineer — designed the architecture, AI classification pipeline, custom Compose charts, and full test suite.",
@@ -157,6 +161,7 @@ export const projects: ProjectData[] = [
     github: "https://github.com/SonaliSulgadle/camera-filter-engine",
     coverPlaceholder: "engine",
     coverLabel: { en: "Core Engine / No UI", ko: "코어 엔진 / UI 없음" },
+    placeholderTag: "Core Engine",
     gallery: [],
     role: {
       en: "Engine author — focused on the image pipeline, threading model, and zero-copy buffer handling.",
@@ -204,6 +209,7 @@ export const projects: ProjectData[] = [
     tech: ["Kotlin", "Jetpack Compose", "Firebase", "Coroutines", "Flow", "Clean Architecture"],
     github: "https://github.com/SonaliSulgadle/task-manager-pro",
     cover: task2,
+    placeholderTag: "Real-time",
     gallery: [task1, task2, task3],
     role: {
       en: "Sole Android engineer — auth flow, Firestore data layer, and Compose UI.",
@@ -251,6 +257,7 @@ export const projects: ProjectData[] = [
     tech: ["Kotlin", "MVVM", "Clean Architecture"],
     github: "https://github.com/SonaliSulgadle/quick-notes-plus",
     cover: notes1,
+    placeholderTag: "Compose UI",
     gallery: [notes1, notes2, notes3],
     role: {
       en: "Sole Android engineer — designed the architecture and screen states.",

@@ -1,89 +1,90 @@
-import { Cpu, ImageOff } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 import { ProjectData } from "@/data/projects";
 
 interface Props {
   project: ProjectData;
   className?: string;
+  /** Compact card thumbnail vs. larger detail page header */
+  size?: "card" | "header";
 }
 
-const ProjectCover = ({ project, className = "" }: Props) => {
-  const { t } = useLang();
+/**
+ * Unified placeholder visual for all project cards / detail headers.
+ * No raw screenshots — keeps the section visually consistent and high-signal.
+ * Real screenshots live in the detail page "Visuals" section.
+ */
+const ProjectCover = ({ project, className = "", size = "card" }: Props) => {
+  const { t, lang } = useLang();
 
-  if (project.cover) {
-    return (
-      <div
-        className={`relative w-full overflow-hidden bg-muted ${className}`}
-        style={{ aspectRatio: "16 / 10" }}
-      >
-        <img
-          src={project.cover}
-          alt={project.name}
-          loading="lazy"
-          className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-        />
-        {project.coverLabel && (
-          <span className="absolute bottom-3 left-3 text-[10px] font-medium uppercase tracking-wider bg-background/85 backdrop-blur px-2 py-1 rounded-md border border-border">
-            {t(project.coverLabel.en, project.coverLabel.ko)}
-          </span>
-        )}
-      </div>
-    );
-  }
+  // Pick a deterministic gradient per project so each card feels distinct
+  // but the system stays consistent.
+  const variants = [
+    "from-primary/15 via-primary/5 to-accent/15",
+    "from-accent/15 via-background to-primary/15",
+    "from-primary/10 via-accent/10 to-primary/15",
+    "from-amber-500/10 via-background to-primary/15",
+    "from-primary/15 via-primary/5 to-accent/10",
+  ];
+  const hash = project.slug
+    .split("")
+    .reduce((acc, c) => acc + c.charCodeAt(0), 0);
+  const gradient = variants[hash % variants.length];
 
-  if (project.coverPlaceholder === "engine") {
-    return (
-      <div
-        className={`relative w-full overflow-hidden ${className}`}
-        style={{ aspectRatio: "16 / 10" }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10" />
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage:
-              "linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)",
-            backgroundSize: "24px 24px",
-          }}
-        />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="flex items-center gap-3 text-primary">
-            <Cpu size={28} strokeWidth={1.5} />
-            <code className="text-sm font-mono opacity-80">
-              CameraX → YUV → Executors → UI
-            </code>
-          </div>
-        </div>
-        <span className="absolute bottom-3 left-3 text-[10px] font-medium uppercase tracking-wider bg-background/85 backdrop-blur px-2 py-1 rounded-md border border-border">
-          {t(
-            project.coverLabel?.en ?? "Core Engine / No UI",
-            project.coverLabel?.ko ?? "코어 엔진 / UI 없음"
-          )}
-        </span>
-      </div>
-    );
-  }
+  const isEngine = project.coverPlaceholder === "engine";
 
-  // comingSoon placeholder
+  const name = lang === "en" ? project.name : project.nameKo;
+  // Strip subtitle after em-dash for a cleaner overlay label
+  const shortName = name.split("—")[0].trim();
+
+  const tag =
+    project.placeholderTag ??
+    (isEngine ? "Core Engine" : project.inProgress ? "In Progress" : null);
+
   return (
     <div
       className={`relative w-full overflow-hidden ${className}`}
-      style={{ aspectRatio: "16 / 10" }}
+      style={{ aspectRatio: size === "header" ? "21 / 9" : "16 / 9" }}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 via-background to-primary/10" />
+      {/* Soft directional gradient */}
+      <div className={`absolute inset-0 bg-gradient-to-br ${gradient}`} />
+
+      {/* Subtle grid / dot mesh for depth */}
       <div
         className="absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage:
-            "radial-gradient(hsl(var(--primary)) 1px, transparent 1px)",
-          backgroundSize: "18px 18px",
-        }}
+        style={
+          isEngine
+            ? {
+                backgroundImage:
+                  "linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)",
+                backgroundSize: "22px 22px",
+              }
+            : {
+                backgroundImage:
+                  "radial-gradient(hsl(var(--primary)) 1px, transparent 1px)",
+                backgroundSize: "16px 16px",
+              }
+        }
       />
-      <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-muted-foreground">
-        <ImageOff size={24} strokeWidth={1.5} />
-        <span className="text-xs font-medium">
-          {t("Visuals coming soon", "비주얼 준비 중")}
-        </span>
+
+      {/* Soft glow accent */}
+      <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-primary/10 blur-3xl" />
+
+      {/* Overlay text */}
+      <div className="absolute inset-0 flex flex-col justify-end p-4">
+        <div className="flex items-end justify-between gap-3">
+          <span
+            className={`font-semibold text-primary leading-tight line-clamp-1 ${
+              size === "header" ? "text-base md:text-lg" : "text-sm"
+            }`}
+          >
+            {shortName}
+          </span>
+          {tag && (
+            <span className="text-[10px] font-medium uppercase tracking-wider bg-background/85 backdrop-blur px-2 py-0.5 rounded-md border border-border whitespace-nowrap">
+              {t(tag, tag)}
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );
