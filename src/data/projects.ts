@@ -61,6 +61,7 @@ export const projects: ProjectData[] = [
     github: "https://github.com/SonaliSulgadle/puri-android",
     coverPlaceholder: "comingSoon",
     coverLabel: { en: "Visuals coming soon", ko: "비주얼 준비 중" },
+    placeholderTag: "AI-powered",
     gallery: [],
     role: {
       en: "Sole Android engineer — owning architecture, AI integration, UX design, and Play Store release preparation.",
