@@ -64,9 +64,6 @@ const ProjectDetail = () => {
             {tagline}
           </p>
 
-          <div className="rounded-xl overflow-hidden border border-border shadow-sm mb-10">
-            <ProjectCover project={project} size="header" />
-          </div>
 
           <section className="mb-10">
             <h2 className="text-xl font-semibold text-primary mb-3">
