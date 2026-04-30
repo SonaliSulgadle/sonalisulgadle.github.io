@@ -5,7 +5,7 @@ import { useLang } from "@/context/LanguageContext";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/portfolio/Navbar";
-import ProjectCover from "@/components/portfolio/ProjectCover";
+
 import { getProjectBySlug } from "@/data/projects";
 import NotFound from "./NotFound";
 
