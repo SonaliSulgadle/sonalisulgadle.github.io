@@ -77,7 +77,7 @@ const ProjectDetail = () => {
               {t("Key Highlights", "주요 기능")}
             </h2>
             <ul className="space-y-2">
-              {highlights.slice(0, 4).map((h, i) => (
+              {highlights.map((h, i) => (
                 <li key={i} className="flex items-start gap-3 text-muted-foreground">
                   <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
                   <span>{h}</span>
