@@ -45,14 +45,14 @@ export const projects: ProjectData[] = [
     },
     highlights: {
       en: [
-        "Jetpack Compose UI with MVI architecture and Clean Architecture layering",
+        "MVVM architecture combined with MVI-style state management to ensure predictable, unidirectional UI state and better scalability",
         "Gemini 2.5 Flash Lite via Retrofit with exponential backoff and structured prompts",
         "AI extracts and translates Korean text from captured images using CameraX",
         "Converts complex Korean addresses into Naver Map–ready links with structured location details (floor, building context, etc.)",
         "Pre-bundled offline guides for 12 essential daily life situations",
       ],
       ko: [
-        "MVI 아키텍처와 Clean Architecture 계층화가 적용된 Jetpack Compose UI",
+        "예측 가능하고 단방향 UI 상태 관리를 통해 확장성을 높이기 위해 MVVM 아키텍처에 MVI 방식의 상태 관리를 결합",
         "지수 백오프 및 구조화된 프롬프트가 적용된 Retrofit 기반 Gemini 2.5 Flash Lite",
         "CameraX로 촬영한 이미지에서 한국어 텍스트를 AI가 추출 및 번역",
         "복잡한 한국 주소를 네이버 지도에 바로 사용할 수 있는 링크로 변환하고, 층수 및 건물 정보 등 구조화된 위치 정보를 제공합니다",
@@ -98,13 +98,13 @@ export const projects: ProjectData[] = [
     },
     highlights: {
       en: [
-        "Jetpack Compose UI with custom Canvas charts",
+        "Built with Material 3, supporting dynamic light and dark themes with a consistent, state-driven UI",
         "Two-layer AI: Gemini 2.5 Flash Lite for classification, local rules for offline fallback",
         "Clean Architecture with Domain / Data / UI layer separation and Hilt DI",
         "Room + Kotlin Flow for reactive UI; full unit test coverage across UseCases & ViewModels",
       ],
       ko: [
-        "커스텀 Canvas 차트가 포함된 Jetpack Compose UI",
+        "Material 3 기반으로 구현되었으며, 일관된 상태 기반 UI와 라이트/다크 테마를 모두 지원",
         "2계층 AI: 분류용 Gemini 2.5 Flash Lite, 오프라인 폴백용 로컬 규칙",
         "Domain / Data / UI 레이어 분리 및 Hilt DI 적용 Clean Architecture",
         "반응형 UI를 위한 Room + Kotlin Flow, UseCases와 ViewModels 전반 단위 테스트 커버리지",
