@@ -12,12 +12,16 @@ interface EduItem {
 
 const education: EduItem[] = [
   {
-    school: "Seoul National University",
+    school: "Seoul National University — Language Education Institute",
     degree: {
-      en: "Korean Language Program (Level 5, Advanced)",
-      ko: "한국어 교육 프로그램 (5급, 고급)",
+      en: "Korean Language Program (Level 1–5) · TOPIK Level 5",
+      ko: "한국어 교육 프로그램 (1–5급) · TOPIK 5급",
     },
     period: "2024 – 2025",
+    note: {
+      en: "Received Excellence Certificates across all levels for consistently achieving 90%+ scores",
+      ko: "전 과정에서 90% 이상의 성적을 유지하여 우수상을 수상",
+    },
   },
   {
     school: "Walchand Institute of Technology, Solapur University",
