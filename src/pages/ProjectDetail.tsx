@@ -169,8 +169,21 @@ const ProjectDetail = () => {
             )}
           </section>
 
-          <section className="pt-6 border-t border-border">
-            <Button asChild size="lg" className="gap-2">
+          <section className="pt-6 border-t border-border flex flex-wrap gap-3">
+            {project.isLive && project.liveUrl && (
+              <Button asChild size="lg" className="gap-2">
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink size={18} />
+                  {t("Live Demo", "라이브 데모")}
+                </a>
+              </Button>
+            )}
+            <Button
+              asChild
+              size="lg"
+              variant={project.isLive && project.liveUrl ? "outline" : "default"}
+              className="gap-2"
+            >
               <a href={project.github} target="_blank" rel="noopener noreferrer">
                 <Github size={18} />
                 {t("View on GitHub", "GitHub에서 보기")}
