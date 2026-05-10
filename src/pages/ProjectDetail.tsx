@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, Github, Star } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Star } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -41,6 +41,15 @@ const ProjectDetail = () => {
           </Button>
 
           <div className="flex flex-wrap items-center gap-2 mb-3">
+            {project.isLive && project.liveUrl && (
+              <Badge className="text-xs gap-1.5 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/15">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75 animate-ping" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+                </span>
+                {t("Live", "라이브")}
+              </Badge>
+            )}
             {project.featured && (
               <Badge className="text-xs gap-1 bg-primary/10 text-primary border border-primary/20 hover:bg-primary/15">
                 <Star size={12} className="fill-primary" />
@@ -69,7 +78,11 @@ const ProjectDetail = () => {
             <h2 className="text-xl font-semibold text-primary mb-3">
               {t("Overview", "개요")}
             </h2>
-            <p className="text-muted-foreground leading-relaxed">{desc}</p>
+            <div className="text-muted-foreground leading-relaxed space-y-4">
+              {desc.split("\n\n").map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
+            </div>
           </section>
 
           <section className="mb-10">
@@ -156,8 +169,21 @@ const ProjectDetail = () => {
             )}
           </section>
 
-          <section className="pt-6 border-t border-border">
-            <Button asChild size="lg" className="gap-2">
+          <section className="pt-6 border-t border-border flex flex-wrap gap-3">
+            {project.isLive && project.liveUrl && (
+              <Button asChild size="lg" className="gap-2">
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                  <ExternalLink size={18} />
+                  {t("Live Demo", "라이브 데모")}
+                </a>
+              </Button>
+            )}
+            <Button
+              asChild
+              size="lg"
+              variant={project.isLive && project.liveUrl ? "outline" : "default"}
+              className="gap-2"
+            >
               <a href={project.github} target="_blank" rel="noopener noreferrer">
                 <Github size={18} />
                 {t("View on GitHub", "GitHub에서 보기")}

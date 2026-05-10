@@ -9,8 +9,11 @@ import task1 from "@/assets/projects/task-1.png";
 import task2 from "@/assets/projects/task-2.png";
 import task3 from "@/assets/projects/task-3.png";
 
+export type ProjectCategory = "web" | "android";
+
 export interface ProjectData {
   slug: string;
+  category: ProjectCategory;
   name: string;
   nameKo: string;
   tagline: { en: string; ko: string };
@@ -18,6 +21,7 @@ export interface ProjectData {
   highlights: { en: string[]; ko: string[] };
   tech: string[];
   github: string;
+  liveUrl?: string;
   cover?: string;
   coverPlaceholder?: "engine" | "comingSoon";
   coverLabel?: { en: string; ko: string };
@@ -28,11 +32,65 @@ export interface ProjectData {
   challenges: { en: string[]; ko: string[] };
   featured?: boolean;
   inProgress?: boolean;
+  isLive?: boolean;
 }
 
 export const projects: ProjectData[] = [
   {
+    slug: "puri-address-converter",
+    category: "web",
+    name: "Puri Address Converter",
+    nameKo: "Puri 주소 변환기",
+    tagline: {
+      en: "Full-stack web tool that converts complex Korean address formats into Naver Map and Kakao Map–ready addresses using Google Gemini AI.",
+      ko: "복잡한 한국 주소 형식을 Google Gemini AI를 사용해 네이버 지도 및 카카오 지도에서 바로 사용할 수 있는 주소로 변환하는 풀스택 웹 도구입니다.",
+    },
+    desc: {
+      en: "Built as a companion tool to the Puri Android app, addressing a common problem faced by foreigners in South Korea: receiving addresses in inconsistent formats that often fail in navigation apps, including 지번 lot numbers, English romanizations, building names, and subway exit references.\n\nThe tool normalizes diverse address inputs into verified 도로명주소 formats optimized for Naver Map and Kakao Map usage.\n\nArchitected using secure server-side Next.js API routes to protect the Gemini API key, with IP-based rate limiting and structured few-shot prompting for reliable AI output parsing and consistency.\n\nDeveloped and deployed independently as part of a deliberate expansion from Android engineering into full-stack web development.",
+      ko: "Puri Android 앱의 동반 도구로 제작되었으며, 한국에 거주하는 외국인이 자주 겪는 문제 — 지번 주소, 영문 로마자 표기, 건물명, 지하철 출구 기준 등 일관되지 않은 형식의 주소가 내비게이션 앱에서 인식되지 않는 문제 — 를 해결합니다.\n\n다양한 형식의 주소 입력을 네이버 지도 및 카카오 지도에 최적화된 검증된 도로명주소 형식으로 정규화합니다.\n\nGemini API 키를 보호하기 위해 안전한 서버 사이드 Next.js API 라우트로 설계되었으며, IP 기반 속도 제한과 구조화된 few-shot 프롬프트를 적용해 안정적인 AI 출력 파싱과 일관성을 보장합니다.\n\nAndroid 엔지니어링에서 풀스택 웹 개발로의 의도적인 확장의 일환으로 독립적으로 개발 및 배포되었습니다.",
+    },
+    highlights: {
+      en: [
+        "Normalizes 지번, romanized, building-name, and subway-exit-based addresses into verified 도로명주소",
+        "Outputs Naver Map and Kakao Map–ready links for instant navigation",
+        "Secure server-side Next.js API routes protecting the Gemini API key",
+        "IP-based rate limiting to prevent abuse",
+        "Structured few-shot prompting for reliable AI output parsing",
+      ],
+      ko: [
+        "지번, 로마자, 건물명, 지하철 출구 기준 주소를 검증된 도로명주소로 정규화",
+        "네이버 지도 및 카카오 지도에 바로 사용 가능한 링크 출력",
+        "Gemini API 키를 보호하는 안전한 서버 사이드 Next.js API 라우트",
+        "악용 방지를 위한 IP 기반 속도 제한",
+        "안정적인 AI 출력 파싱을 위한 구조화된 few-shot 프롬프트",
+      ],
+    },
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Gemini AI", "Vercel"],
+    github: "https://github.com/SonaliSulgadle/puri-address",
+    liveUrl: "https://puri-address.vercel.app",
+    gallery: [],
+    role: {
+      en: "Sole full-stack engineer — designed the API architecture, prompt engineering, rate limiting, UI, and deployment pipeline.",
+      ko: "단독 풀스택 엔지니어로서 API 아키텍처, 프롬프트 엔지니어링, 속도 제한, UI, 배포 파이프라인 전반을 설계.",
+    },
+    challenges: {
+      en: [
+        "Designed structured few-shot prompts so Gemini reliably normalizes wildly inconsistent address inputs into a single 도로명주소 format.",
+        "Moved all Gemini calls behind Next.js API routes with IP-based rate limiting to keep the API key secure and prevent abuse.",
+        "Bridged Android engineering into full-stack web by independently architecting and deploying the service on Vercel.",
+      ],
+      ko: [
+        "매우 일관성 없는 주소 입력을 단일 도로명주소 형식으로 안정적으로 정규화하기 위해 구조화된 few-shot 프롬프트 설계.",
+        "API 키 보호와 악용 방지를 위해 모든 Gemini 호출을 Next.js API 라우트 뒤로 옮기고 IP 기반 속도 제한 적용.",
+        "Vercel에 서비스를 독립적으로 설계·배포하며 Android 엔지니어링에서 풀스택 웹으로 영역 확장.",
+      ],
+    },
+    featured: true,
+    isLive: true,
+  },
+  {
     slug: "puri",
+    category: "android",
     name: "Puri (풀이) — Daily Life Solver for Foreigners in Korea",
     nameKo: "Puri (풀이) — 한국 거주 외국인을 위한 생활 해결사",
     tagline: {
@@ -86,6 +144,7 @@ export const projects: ProjectData[] = [
   },
   {
     slug: "expense-tracker",
+    category: "android",
     name: "ExpenseTracker",
     nameKo: "ExpenseTracker",
     tagline: {
@@ -135,6 +194,7 @@ export const projects: ProjectData[] = [
   },
   {
     slug: "camera-filter-engine",
+    category: "android",
     name: "CameraFilterEngine",
     nameKo: "CameraFilterEngine",
     tagline: {
@@ -184,6 +244,7 @@ export const projects: ProjectData[] = [
   },
   {
     slug: "task-manager-pro",
+    category: "android",
     name: "TaskManagerPro",
     nameKo: "TaskManagerPro",
     tagline: {
@@ -232,6 +293,7 @@ export const projects: ProjectData[] = [
   },
   {
     slug: "quick-notes-plus",
+    category: "android",
     name: "QuickNotes+",
     nameKo: "QuickNotes+",
     tagline: {
