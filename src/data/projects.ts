@@ -1,3 +1,6 @@
+import puriWebDemo from "@/assets/projects/puri-web/demo.gif";
+import puriWebDesktop from "@/assets/projects/puri-web/desktop.png";
+import puriWebMobile from "@/assets/projects/puri-web/mobile.png";
 import expense1 from "@/assets/projects/expense-1.png";
 import expense3 from "@/assets/projects/expense-3.png";
 import expense4 from "@/assets/projects/expense-4.png";
@@ -68,7 +71,7 @@ export const projects: ProjectData[] = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Gemini AI", "Vercel"],
     github: "https://github.com/SonaliSulgadle/puri-address",
     liveUrl: "https://puri-address.vercel.app",
-    gallery: [],
+    gallery: [puriWebDemo, puriWebDesktop, puriWebMobile],
     role: {
       en: "Sole full-stack engineer — designed the API architecture, prompt engineering, rate limiting, UI, and deployment pipeline.",
       ko: "단독 풀스택 엔지니어로서 API 아키텍처, 프롬프트 엔지니어링, 속도 제한, UI, 배포 파이프라인 전반을 설계.",
