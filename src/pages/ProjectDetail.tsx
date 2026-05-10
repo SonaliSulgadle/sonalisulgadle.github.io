@@ -41,6 +41,15 @@ const ProjectDetail = () => {
           </Button>
 
           <div className="flex flex-wrap items-center gap-2 mb-3">
+            {project.isLive && project.liveUrl && (
+              <Badge className="text-xs gap-1.5 bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border border-emerald-500/30 hover:bg-emerald-500/15">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75 animate-ping" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+                </span>
+                {t("Live", "라이브")}
+              </Badge>
+            )}
             {project.featured && (
               <Badge className="text-xs gap-1 bg-primary/10 text-primary border border-primary/20 hover:bg-primary/15">
                 <Star size={12} className="fill-primary" />
@@ -69,7 +78,11 @@ const ProjectDetail = () => {
             <h2 className="text-xl font-semibold text-primary mb-3">
               {t("Overview", "개요")}
             </h2>
-            <p className="text-muted-foreground leading-relaxed">{desc}</p>
+            <div className="text-muted-foreground leading-relaxed space-y-4">
+              {desc.split("\n\n").map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
+            </div>
           </section>
 
           <section className="mb-10">
