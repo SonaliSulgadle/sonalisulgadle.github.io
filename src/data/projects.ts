@@ -144,6 +144,7 @@ export const projects: ProjectData[] = [
   },
   {
     slug: "expense-tracker",
+    category: "android",
     name: "ExpenseTracker",
     nameKo: "ExpenseTracker",
     tagline: {
@@ -193,6 +194,7 @@ export const projects: ProjectData[] = [
   },
   {
     slug: "camera-filter-engine",
+    category: "android",
     name: "CameraFilterEngine",
     nameKo: "CameraFilterEngine",
     tagline: {
@@ -242,6 +244,7 @@ export const projects: ProjectData[] = [
   },
   {
     slug: "task-manager-pro",
+    category: "android",
     name: "TaskManagerPro",
     nameKo: "TaskManagerPro",
     tagline: {
@@ -290,6 +293,7 @@ export const projects: ProjectData[] = [
   },
   {
     slug: "quick-notes-plus",
+    category: "android",
     name: "QuickNotes+",
     nameKo: "QuickNotes+",
     tagline: {
