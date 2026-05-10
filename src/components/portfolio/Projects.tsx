@@ -74,7 +74,7 @@ const Projects = () => {
               </div>
             </div>
 
-            <p className="text-xs text-muted-foreground mb-4 leading-relaxed line-clamp-2">
+            <p className="text-xs text-muted-foreground mt-1 mb-5 leading-relaxed">
               {lang === "en" ? p.tagline.en : p.tagline.ko}
             </p>
 
