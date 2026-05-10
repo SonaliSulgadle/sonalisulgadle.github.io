@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ArrowLeft, Github, Star } from "lucide-react";
+import { ArrowLeft, ExternalLink, Github, Star } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
