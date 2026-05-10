@@ -138,22 +138,54 @@ const ProjectDetail = () => {
               {t("Visuals", "비주얼")}
             </h2>
             {project.gallery.length > 0 ? (
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {project.gallery.map((src, i) => (
-                  <div
-                    key={i}
-                    className="rounded-lg overflow-hidden border border-border bg-muted"
-                    style={{ aspectRatio: "9 / 16" }}
-                  >
+              project.category === "web" ? (
+                <div className="space-y-4">
+                  <figure className="rounded-xl overflow-hidden border border-border bg-muted shadow-sm">
                     <img
-                      src={src}
-                      alt={`${project.name} screenshot ${i + 1}`}
+                      src={project.gallery[0]}
+                      alt={`${project.name} demo`}
                       loading="lazy"
-                      className="w-full h-full object-cover object-top"
+                      className="w-full h-auto block"
                     />
-                  </div>
-                ))}
-              </div>
+                  </figure>
+                  {project.gallery.length > 1 && (
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      {project.gallery.slice(1).map((src, i) => (
+                        <figure
+                          key={i}
+                          className={`rounded-xl overflow-hidden border border-border bg-muted shadow-sm ${
+                            i === 0 ? "sm:col-span-2" : "sm:col-span-1"
+                          }`}
+                        >
+                          <img
+                            src={src}
+                            alt={`${project.name} screenshot ${i + 1}`}
+                            loading="lazy"
+                            className="w-full h-auto block"
+                          />
+                        </figure>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {project.gallery.map((src, i) => (
+                    <div
+                      key={i}
+                      className="rounded-lg overflow-hidden border border-border bg-muted"
+                      style={{ aspectRatio: "9 / 16" }}
+                    >
+                      <img
+                        src={src}
+                        alt={`${project.name} screenshot ${i + 1}`}
+                        loading="lazy"
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )
             ) : (
               <div className="rounded-lg border border-dashed border-border p-10 text-center text-sm text-muted-foreground bg-muted/30">
                 {project.inProgress
