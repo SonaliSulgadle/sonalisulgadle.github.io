@@ -1,6 +1,12 @@
 import puriWebDemo from "@/assets/projects/puri-web/demo.gif";
 import puriWebDesktop from "@/assets/projects/puri-web/desktop.png";
 import puriWebMobile from "@/assets/projects/puri-web/mobile.png";
+import puri0 from "@/assets/projects/puri-android/puri-0.png";
+import puri1 from "@/assets/projects/puri-android/puri-1.png";
+import puri2 from "@/assets/projects/puri-android/puri-2.png";
+import puri3 from "@/assets/projects/puri-android/puri-3.png";
+import puri4 from "@/assets/projects/puri-android/puri-4.png";
+import puri5 from "@/assets/projects/puri-android/puri-5.png";
 import expense1 from "@/assets/projects/expense-1.png";
 import expense3 from "@/assets/projects/expense-3.png";
 import expense4 from "@/assets/projects/expense-4.png";
@@ -122,10 +128,8 @@ export const projects: ProjectData[] = [
     },
     tech: ["Kotlin", "Jetpack Compose", "Gemini AI", "CameraX", "Retrofit", "Room", "Hilt", "MVI", "Clean Architecture"],
     github: "https://github.com/SonaliSulgadle/puri-android",
-    coverPlaceholder: "comingSoon",
-    coverLabel: { en: "Visuals coming soon", ko: "비주얼 준비 중" },
-    placeholderTag: "AI-powered",
-    gallery: [],
+    cover: puri1,
+    gallery: [puri1, puri0, puri2, puri3, puri4, puri5],
     role: {
       en: "Sole Android engineer — owning architecture, AI integration, UX design, and Play Store release preparation.",
       ko: "단독 Android 엔지니어로서 아키텍처, AI 통합, UX 설계, Play Store 출시 준비 전반을 담당.",
