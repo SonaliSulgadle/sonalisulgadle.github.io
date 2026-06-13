@@ -31,9 +31,9 @@ const Hero = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-6">
-        <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-10 md:gap-14 max-w-5xl mx-auto">
+        <div className="flex flex-col items-center justify-center gap-10 max-w-5xl mx-auto">
           {/* Text content */}
-          <div className="flex-1 text-center md:text-left">
+          <div className="flex-1 text-center">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
