@@ -38,8 +38,8 @@ const Contact = () => {
           className="text-primary-foreground/60 mb-10 max-w-lg mx-auto text-base leading-relaxed"
         >
           {t(
-            "I'm currently based in Seoul and open to new opportunities. Feel free to reach out!",
-            "현재 서울에 거주 중이며 새로운 기회에 열려 있습니다. 편하게 연락해 주세요!"
+            "I'm currently based in Seoul and open to new Android engineering opportunities. Feel free to reach out!",
+            "현재 서울에 거주 중이며 안드로이드 엔지니어 포지션에 관심이 있습니다. 편하게 연락해 주세요!"
           )}
         </motion.p>
 
