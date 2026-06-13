@@ -31,9 +31,9 @@ const Hero = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-6">
-        <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-10 md:gap-14 max-w-5xl mx-auto">
+        <div className="flex flex-col items-center justify-center gap-10 max-w-5xl mx-auto">
           {/* Text content */}
-          <div className="flex-1 text-center md:text-left">
+          <div className="flex-1 text-center">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -71,8 +71,8 @@ const Hero = () => {
               className="text-sm text-muted-foreground/60 mb-8 tracking-wide"
             >
               {t(
-                "Built products across fintech, mobility, aviation, and fitness",
-                "핀테크, 모빌리티, 항공, 피트니스 분야에서 제품을 구축"
+                "Built products across fintech, mobile banking, aviation, and sports entertainment",
+                "핀테크, 모바일 뱅킹, 항공, 스포츠 엔터테인먼트 분야의 대규모 서비스 개발 경험"
               )}
             </motion.p>
 
@@ -99,23 +99,6 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Profile photo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="relative shrink-0"
-          >
-            <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-primary/20 via-accent/15 to-primary/10 blur-xl" />
-            <div className="relative w-44 h-44 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-full overflow-hidden ring-4 ring-background shadow-xl border border-border">
-              <img
-                src={profilePhoto.url}
-                alt="Sonali Sulgadle — Android Developer"
-                className="w-full h-full object-cover"
-                style={{ objectPosition: "60% 30%" }}
-              />
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>
