@@ -40,28 +40,14 @@ const Hero = () => {
             className="relative shrink-0"
           >
             <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-primary/20 via-accent/15 to-primary/10 blur-xl" />
-            <div
-              className="relative rounded-full overflow-hidden ring-4 ring-background shadow-xl border border-border"
-              style={{ width: "130px", height: "130px" }}
-            >
-              <div className="hidden md:block absolute inset-0">
-                <img
-                  src={profilePhoto.url}
-                  alt="Sonali Sulgadle — Android Developer"
-                  className="w-full h-full object-cover"
-                  style={{ objectPosition: "60% 30%" }}
-                />
-              </div>
-              <div className="md:hidden absolute inset-0">
-                <img
-                  src={profilePhoto.url}
-                  alt="Sonali Sulgadle — Android Developer"
-                  className="w-full h-full object-cover"
-                  style={{ objectPosition: "60% 30%" }}
-                />
-              </div>
+            <div className="relative w-[130px] h-[130px] md:w-[220px] md:h-[220px] rounded-full overflow-hidden ring-4 ring-background shadow-xl border border-border">
+              <img
+                src={profilePhoto.url}
+                alt="Sonali Sulgadle — Android Developer"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: "60% 30%" }}
+              />
             </div>
-            <style>{`@media (min-width: 768px){.hero-photo-wrap{width:220px!important;height:220px!important}}`}</style>
           </motion.div>
 
           {/* Text content */}
