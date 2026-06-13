@@ -36,7 +36,7 @@ const categories: SkillCategory[] = [
   {
     title: "Dependency Injection & Testing",
     titleKo: "DI & 테스트",
-    skills: ["Hilt", "Dagger", "Koin", "JUnit", "Mockito"],
+    skills: ["Hilt", "Dagger", "Koin", "JUnit", "Mockito", "MockK"],
   },
   {
     title: "Tools",
