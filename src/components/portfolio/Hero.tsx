@@ -31,9 +31,41 @@ const Hero = () => {
       </div>
 
       <div className="container relative z-10 mx-auto px-6">
-        <div className="flex flex-col items-center justify-center gap-10 max-w-5xl mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-14 max-w-5xl mx-auto">
+          {/* Profile photo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="relative shrink-0"
+          >
+            <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-primary/20 via-accent/15 to-primary/10 blur-xl" />
+            <div
+              className="relative rounded-full overflow-hidden ring-4 ring-background shadow-xl border border-border"
+              style={{ width: "130px", height: "130px" }}
+            >
+              <div className="hidden md:block absolute inset-0">
+                <img
+                  src={profilePhoto.url}
+                  alt="Sonali Sulgadle — Android Developer"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: "60% 30%" }}
+                />
+              </div>
+              <div className="md:hidden absolute inset-0">
+                <img
+                  src={profilePhoto.url}
+                  alt="Sonali Sulgadle — Android Developer"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: "60% 30%" }}
+                />
+              </div>
+            </div>
+            <style>{`@media (min-width: 768px){.hero-photo-wrap{width:220px!important;height:220px!important}}`}</style>
+          </motion.div>
+
           {/* Text content */}
-          <div className="flex-1 text-center">
+          <div className="flex-1 text-center md:text-left">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
