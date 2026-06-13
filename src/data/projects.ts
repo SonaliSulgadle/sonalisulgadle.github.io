@@ -147,7 +147,6 @@ export const projects: ProjectData[] = [
       ],
     },
     featured: true,
-    inProgress: true,
   },
   {
     slug: "expense-tracker",
