@@ -18,11 +18,11 @@ const items: CommunityItem[] = [
     },
   },
   {
-    title: { en: "Women in Tech Communities", ko: "여성 기술 커뮤니티" },
+    title: { en: "The Tech Table", ko: "The Tech Table" },
     icon: Sparkles,
     description: {
-      en: "Participating in women-in-tech community initiatives including The Tech Table.",
-      ko: "The Tech Table을 포함한 여성 기술 커뮤니티 활동에 참여하고 있습니다.",
+      en: "Participating in The Tech Table, a women-in-tech community focused on connection, mentorship, knowledge sharing, and supporting women navigating careers in technology.",
+      ko: "The Tech Table은 여성 기술인들의 네트워킹, 멘토링, 지식 공유, 그리고 커리어 성장을 지원하는 여성 기술 커뮤니티입니다.",
     },
   },
 ];

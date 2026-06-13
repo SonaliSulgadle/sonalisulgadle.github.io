@@ -1,7 +1,7 @@
 import { useLang } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import { ArrowDown, Mail } from "lucide-react";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import profilePhoto from "@/assets/sonali-profile.jpg.asset.json";
 
 const Hero = () => {
   const { t } = useLang();
@@ -15,8 +15,8 @@ const Hero = () => {
       <div className="absolute top-[42%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full blur-[90px] pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(99,102,241,0.10) 0%, rgba(99,102,241,0.04) 60%, transparent 100%)' }} />
 
       {/* Developer-themed background texture — offset to top-right */}
-      <div className="absolute top-[15%] right-[8%] pointer-events-none select-none overflow-hidden">
-        <pre className="text-primary/[0.09] text-[15px] leading-relaxed font-mono whitespace-pre tracking-wide blur-[0.4px]">
+      <div className="absolute top-[12%] right-[4%] pointer-events-none select-none overflow-hidden hidden lg:block">
+        <pre className="text-primary/[0.07] text-[14px] leading-relaxed font-mono whitespace-pre tracking-wide blur-[0.4px]">
 {`class AndroidDeveloper {
     val experience = "~8 years"
     val architecture = "Clean + MVVM"
@@ -30,71 +30,93 @@ const Hero = () => {
         </pre>
       </div>
 
-      <div className="container relative z-10 mx-auto px-6 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-accent font-medium mb-4 text-xs tracking-[0.25em] uppercase"
-        >
-          {t("Hello, I'm", "안녕하세요,")}
-        </motion.p>
+      <div className="container relative z-10 mx-auto px-6">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-10 md:gap-14 max-w-5xl mx-auto">
+          {/* Text content */}
+          <div className="flex-1 text-center md:text-left">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-accent font-medium mb-4 text-xs tracking-[0.25em] uppercase"
+            >
+              {t("Hello, I'm", "안녕하세요,")}
+            </motion.p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-bold text-primary mb-5 tracking-tight"
-        >
-          Sonali Sulgadle
-        </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-4xl md:text-6xl font-bold text-primary mb-5 tracking-tight"
+            >
+              Sonali Sulgadle
+            </motion.h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-3 leading-relaxed"
-        >
-          {t(
-            "Android Developer with around 8 years of experience building scalable mobile applications",
-            "확장 가능한 모바일 애플리케이션을 개발해 온 약 8년 경력의 안드로이드 개발자"
-          )}
-        </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto md:mx-0 mb-3 leading-relaxed"
+            >
+              {t(
+                "Android Developer with around 8 years of experience building scalable mobile applications",
+                "확장 가능한 모바일 애플리케이션을 개발해 온 약 8년 경력의 안드로이드 개발자"
+              )}
+            </motion.p>
 
-        {/* Trust line */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-          className="text-sm text-muted-foreground/60 mb-10 tracking-wide"
-        >
-          {t(
-            "Built products across fintech, mobility, aviation, and fitness",
-            "핀테크, 모빌리티, 항공, 피트니스 분야에서 제품을 구축"
-          )}
-        </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25 }}
+              className="text-sm text-muted-foreground/60 mb-8 tracking-wide"
+            >
+              {t(
+                "Built products across fintech, mobility, aviation, and fitness",
+                "핀테크, 모빌리티, 항공, 피트니스 분야에서 제품을 구축"
+              )}
+            </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <a
-            href="#projects"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg bg-primary text-primary-foreground font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start"
+            >
+              <a
+                href="#projects"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg bg-primary text-primary-foreground font-medium shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+              >
+                <ArrowDown size={18} />
+                {t("View Projects", "프로젝트 보기")}
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-lg border border-border text-muted-foreground font-medium hover:bg-muted hover:text-foreground hover:-translate-y-0.5 transition-all duration-200"
+              >
+                <Mail size={18} />
+                {t("Contact Me", "연락하기")}
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Profile photo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="relative shrink-0"
           >
-            <ArrowDown size={18} />
-            {t("View Projects", "프로젝트 보기")}
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-lg border border-border text-muted-foreground font-medium hover:bg-muted hover:text-foreground hover:-translate-y-0.5 transition-all duration-200"
-          >
-            <Mail size={18} />
-            {t("Contact Me", "연락하기")}
-          </a>
-        </motion.div>
+            <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-primary/20 via-accent/15 to-primary/10 blur-xl" />
+            <div className="relative w-44 h-44 sm:w-52 sm:h-52 md:w-64 md:h-64 rounded-full overflow-hidden ring-4 ring-background shadow-xl border border-border">
+              <img
+                src={profilePhoto.url}
+                alt="Sonali Sulgadle — Android Developer"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: "60% 30%" }}
+              />
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
