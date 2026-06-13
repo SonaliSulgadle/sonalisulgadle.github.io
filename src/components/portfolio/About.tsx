@@ -38,6 +38,9 @@ const About = () => {
                     <p className="text-foreground leading-relaxed text-lg mt-4">
                       I'm currently based in Seoul and looking for a team where I can do meaningful work and keep growing alongside great people.
                     </p>
+                    <p className="text-foreground leading-relaxed text-lg mt-4">
+                      I've been living in Seoul for two years and plan to stay — it's where I want to grow my career.
+                    </p>
                   </>
                 ) : (
                   <>
