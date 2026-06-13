@@ -71,8 +71,8 @@ const Hero = () => {
               className="text-sm text-muted-foreground/60 mb-8 tracking-wide"
             >
               {t(
-                "Built products across fintech, mobility, aviation, and fitness",
-                "핀테크, 모빌리티, 항공, 피트니스 분야에서 제품을 구축"
+                "Built products across fintech, mobile banking, aviation, and sports entertainment",
+                "핀테크, 모바일 뱅킹, 항공, 스포츠 엔터테인먼트 분야의 대규모 서비스 개발 경험"
               )}
             </motion.p>
 
