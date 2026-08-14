@@ -4,6 +4,7 @@ import { Users, Sparkles } from "lucide-react";
 
 interface CommunityItem {
   title: { en: string; ko: string };
+  meta: { en: string; ko: string };
   description: { en: string; ko: string };
   icon: typeof Users;
 }
@@ -11,18 +12,26 @@ interface CommunityItem {
 const items: CommunityItem[] = [
   {
     title: { en: "Seoul Tech Circle", ko: "Seoul Tech Circle" },
+    meta: {
+      en: "Seoul, South Korea · Community Meetup",
+      ko: "Seoul, South Korea · 기술 커뮤니티",
+    },
     icon: Users,
     description: {
-      en: "Founded and host Seoul Tech Circle, a recurring meetup for tech professionals and job seekers in Seoul focused on networking, resume feedback, peer learning, and navigating Korea's tech industry together.",
-      ko: "서울에서 활동하는 기술 전문가 및 구직자들을 위한 정기 모임인 Seoul Tech Circle을 운영하며, 네트워킹, 이력서 피드백, 정보 공유, 한국 IT 업계 탐색을 함께 지원합니다.",
+      en: "Founded and hosted Seoul Tech Circle, a recurring meetup for tech professionals and job seekers in Seoul focused on networking, resume feedback, peer learning, engineering discussions, and navigating Korea's tech industry together.",
+      ko: "서울의 기술 전문가와 구직자를 위한 정기 모임인 Seoul Tech Circle을 설립하고 운영했습니다. 네트워킹, 이력서 피드백, 동료 학습, 엔지니어링 토론 및 한국 IT 업계에 대한 정보 공유를 중심으로 커뮤니티를 운영했습니다.",
     },
   },
   {
     title: { en: "The Tech Table", ko: "The Tech Table" },
+    meta: {
+      en: "Seoul, South Korea · Women in Tech Community",
+      ko: "Seoul, South Korea · 여성 기술 커뮤니티",
+    },
     icon: Sparkles,
     description: {
-      en: "Participating in The Tech Table, a women-in-tech community focused on connection, mentorship, knowledge sharing, and supporting women navigating careers in technology.",
-      ko: "The Tech Table은 여성 기술인들의 네트워킹, 멘토링, 지식 공유, 그리고 커리어 성장을 지원하는 여성 기술 커뮤니티입니다.",
+      en: "Member of The Tech Table, a women-in-tech community focused on connection, mentorship, knowledge sharing, and supporting women navigating careers in technology.",
+      ko: "여성 기술 인재들의 네트워킹, 멘토링, 지식 공유 및 커리어 성장을 지원하는 The Tech Table의 멤버로 활동하고 있습니다.",
     },
   },
 ];
