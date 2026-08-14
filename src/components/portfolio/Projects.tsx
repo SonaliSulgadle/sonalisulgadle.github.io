@@ -68,7 +68,7 @@ const Projects = () => {
                     variant="outline"
                     className="text-[10px] px-1.5 py-0 border-amber-500/50 bg-amber-500/10 text-amber-700 dark:text-amber-400"
                   >
-                    {t("In Progress", "개발 중")}
+                    {t("Release Preparation", "출시 준비 중")}
                   </Badge>
                 )}
               </div>

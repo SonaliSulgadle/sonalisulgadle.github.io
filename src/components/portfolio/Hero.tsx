@@ -86,11 +86,23 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className="text-sm text-muted-foreground/60 mb-8 tracking-wide"
+              className="text-sm text-muted-foreground/60 mb-4 tracking-wide"
             >
               {t(
                 "Built products across fintech, mobile banking, aviation, and sports entertainment",
                 "핀테크, 모바일 뱅킹, 항공, 스포츠 엔터테인먼트 분야의 대규모 서비스 개발 경험"
+              )}
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.28 }}
+              className="text-xs text-muted-foreground/70 mb-8 tracking-wide"
+            >
+              {t(
+                "Open to new opportunities · India · South Korea · Global · Remote",
+                "새로운 기회에 열려 있습니다 · 인도 · 한국 · 글로벌 · 원격"
               )}
             </motion.p>
 

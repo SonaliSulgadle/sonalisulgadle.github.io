@@ -26,7 +26,7 @@ const Contact = () => {
         >
           <MapPin size={18} className="text-primary-foreground/70" />
           <span className="text-primary-foreground/70 text-lg">
-            {t("Open to opportunities in Seoul", "서울에서 새로운 기회를 찾고 있습니다")}
+            {t("India · South Korea · Global · Remote", "인도 · 한국 · 글로벌 · 원격")}
           </span>
         </motion.div>
 
@@ -38,8 +38,8 @@ const Contact = () => {
           className="text-primary-foreground/60 mb-10 max-w-lg mx-auto text-base leading-relaxed"
         >
           {t(
-            "I'm currently based in Seoul and open to new Android engineering opportunities. Feel free to reach out!",
-            "현재 서울에 거주 중이며 안드로이드 엔지니어 포지션에 관심이 있습니다. 편하게 연락해 주세요!"
+            "I'm open to Android and mobile engineering opportunities across India, South Korea, global teams, and remote roles. Feel free to reach out!",
+            "인도, 한국, 글로벌 팀 및 원격 근무 환경의 안드로이드 및 모바일 엔지니어링 기회에 열려 있습니다. 편하게 연락해 주세요!"
           )}
         </motion.p>
 
