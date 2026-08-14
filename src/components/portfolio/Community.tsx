@@ -68,10 +68,13 @@ const Community = () => {
                     <Icon className="h-5 w-5 text-accent" />
                   </div>
                   <div className="space-y-1.5">
-                    <h3 className="font-semibold text-foreground">
+                    <h3 className="font-semibold text-foreground leading-tight">
                       {lang === "en" ? item.title.en : item.title.ko}
                     </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-[11px] uppercase tracking-wider text-muted-foreground/70">
+                      {lang === "en" ? item.meta.en : item.meta.ko}
+                    </p>
+                    <p className="text-sm text-muted-foreground leading-relaxed pt-0.5">
                       {lang === "en" ? item.description.en : item.description.ko}
                     </p>
                   </div>
