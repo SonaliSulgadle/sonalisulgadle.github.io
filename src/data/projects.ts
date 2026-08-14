@@ -107,8 +107,12 @@ export const projects: ProjectData[] = [
       ko: "한국 거주 외국인을 위한 AI 기반 생활 해결사.",
     },
     desc: {
-      en: "A production-ready Android app that helps foreigners in South Korea navigate daily life confusion — from trash sorting and appliance instructions to transport and medical clinics — using AI-powered photo and text analysis with structured, step-by-step guidance. Currently in active development targeting Google Play Store release.",
-      ko: "쓰레기 분리수거, 가전제품 사용법, 교통, 병원 등 한국 거주 외국인이 일상에서 겪는 혼란을 AI 기반 사진 및 텍스트 분석과 단계별 가이드로 해결해주는 프로덕션 수준의 Android 앱입니다. 현재 Google Play Store 출시를 목표로 활발히 개발 중입니다.",
+      en: "A production-ready Android app that helps foreigners in South Korea navigate daily life confusion — from trash sorting and appliance instructions to transport and medical clinics — using AI-powered photo and text analysis with structured, step-by-step guidance.
+
+Development is complete and the app is currently in release preparation, with final testing and Google Play release issues being addressed.",
+      ko: "쓰레기 분리수거, 가전제품 사용법, 교통, 병원 등 한국 거주 외국인이 일상에서 겪는 혼란을 AI 기반 사진 및 텍스트 분석과 단계별 가이드로 해결해주는 프로덕션 수준의 Android 앱입니다.
+
+앱 개발은 완료되었으며 현재 최종 테스트와 Google Play 출시 과정에서 발생한 문제를 해결하며 출시를 준비하고 있습니다.",
     },
     highlights: {
       en: [
@@ -147,6 +151,7 @@ export const projects: ProjectData[] = [
       ],
     },
     featured: true,
+    inProgress: true,
   },
   {
     slug: "expense-tracker",
