@@ -70,9 +70,17 @@ const ProjectDetail = () => {
           <h1 className="text-3xl md:text-4xl font-bold text-primary mb-3 leading-tight">
             {name}
           </h1>
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            {tagline}
-          </p>
+          <div className="flex flex-wrap items-center gap-3 mb-6">
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              {tagline}
+            </p>
+            {project.statusMeta && (
+              <span className="text-xs text-muted-foreground px-2.5 py-1 rounded-full border border-border bg-muted/50">
+                {lang === "en" ? project.statusMeta.en : project.statusMeta.ko}
+              </span>
+            )}
+          </div>
+
 
 
           <section className="mb-10">
