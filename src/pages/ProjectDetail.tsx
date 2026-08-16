@@ -197,16 +197,17 @@ const ProjectDetail = () => {
               )
             ) : (
               <div className="rounded-lg border border-dashed border-border p-10 text-center text-sm text-muted-foreground bg-muted/30">
-                {project.inProgress
+                {project.status
                   ? t(
-                      "Visuals coming soon — app is in active development.",
-                      "비주얼 준비 중 — 앱이 활발히 개발 중입니다."
+                      "Visuals coming soon — app is currently in closed testing.",
+                      "비주얼 준비 중 — 앱이 현재 비공개 테스트 중입니다."
                     )
                   : t(
                       "This project is a core engine module without a dedicated UI.",
                       "이 프로젝트는 전용 UI가 없는 코어 엔진 모듈입니다."
                     )}
               </div>
+
             )}
           </section>
 
