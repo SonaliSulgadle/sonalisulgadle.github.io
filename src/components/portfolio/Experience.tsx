@@ -1,6 +1,6 @@
 import { useLang } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
-import { MapPin, Calendar, Check } from "lucide-react";
+import { MapPin, Check, Briefcase, GraduationCap, Code2 } from "lucide-react";
 
 interface ProjectData {
   name: string;
@@ -9,23 +9,89 @@ interface ProjectData {
   tech: string[];
 }
 
-interface RoleData {
-  company: string;
-  role: { en: string; ko: string };
-  location: { en: string; ko: string };
+type EntryKind = "independent" | "education" | "work";
+
+interface TimelineEntry {
+  kind: EntryKind;
+  current?: boolean;
+  title: { en: string; ko: string };
+  subtitle: { en: string; ko: string };
+  location?: { en: string; ko: string };
+  rangeLabel: string;
   period: string;
   narrative: { en: string; ko: string };
   highlights: { en: string[]; ko: string[] };
-  stack: string[];
-  projects: ProjectData[];
+  stack?: string[];
+  projects?: ProjectData[];
 }
 
-const roles: RoleData[] = [
+const entries: TimelineEntry[] = [
   {
-    company: "Globant Pvt. Ltd.",
-    role: { en: "Android Developer → Technical Lead", ko: "Android 개발자 → 기술 리드" },
-    location: { en: "Pune, India", ko: "인도, 푸네" },
+    kind: "independent",
+    current: true,
+    rangeLabel: "2025 – Present",
+    period: "Aug 2025 – Present",
+    title: {
+      en: "Independent Development & Community Projects",
+      ko: "독립 개발 및 커뮤니티 프로젝트",
+    },
+    subtitle: { en: "Self-Directed", ko: "자기주도 활동" },
+    narrative: {
+      en: "Building independent software projects to deepen hands-on expertise in modern Android development while expanding into AI-powered applications and full-stack web development.",
+      ko: "최신 Android 개발 역량을 심화하는 동시에 AI 기반 애플리케이션과 풀스택 웹 개발로 영역을 확장하기 위해 독립적인 소프트웨어 프로젝트를 진행하고 있습니다.",
+    },
+    highlights: {
+      en: [
+        "Building and maintaining Android projects using Kotlin, Jetpack Compose, Coroutines/Flow, Clean Architecture, and MVI.",
+        "Designed and built Puri, an AI-powered Android application integrating Gemini AI, CameraX, Room, Hilt, and modern Android architecture.",
+        "Puri is currently in Google Play Closed Testing.",
+        "Built Puri Address Converter, a full-stack web application using Next.js, TypeScript, Tailwind CSS, Gemini AI, and Vercel.",
+        "Continued involvement in technical and women-in-tech communities.",
+      ],
+      ko: [
+        "Kotlin, Jetpack Compose, Coroutines/Flow, Clean Architecture, MVI를 활용한 Android 프로젝트 개발 및 유지보수",
+        "Gemini AI, CameraX, Room, Hilt와 최신 Android 아키텍처를 결합한 AI 기반 앱 Puri 설계 및 개발",
+        "Puri는 현재 Google Play 비공개 테스트 중입니다.",
+        "Next.js, TypeScript, Tailwind CSS, Gemini AI, Vercel 기반 풀스택 웹앱 Puri Address Converter 개발",
+        "기술 커뮤니티 및 여성 개발자 커뮤니티 활동 지속",
+      ],
+    },
+    stack: [
+      "Kotlin", "Jetpack Compose", "MVI", "Clean Architecture", "Gemini AI",
+      "CameraX", "Room", "Hilt", "Next.js", "TypeScript", "Tailwind CSS",
+    ],
+  },
+  {
+    kind: "education",
+    rangeLabel: "2024 – 2025",
+    period: "Jun 2024 – Aug 2025",
+    title: { en: "Seoul National University", ko: "서울대학교" },
+    subtitle: { en: "Korean Language Education Center", ko: "언어교육원 한국어교육센터" },
+    location: { en: "Seoul, South Korea", ko: "대한민국 서울" },
+    narrative: {
+      en: "Completed Korean language Levels 1–5 at Seoul National University's Korean Language Education Center.",
+      ko: "서울대학교 언어교육원에서 한국어 1급부터 5급까지 과정을 수료했습니다.",
+    },
+    highlights: {
+      en: [
+        "Completed Levels 1–5",
+        "TOPIK Level 5",
+        "Received Excellence Certificates across all completed levels for achieving 90%+ scores",
+      ],
+      ko: [
+        "한국어 1급 – 5급 수료",
+        "TOPIK 5급 취득",
+        "전 급수에서 90% 이상 성적으로 우수상 수상",
+      ],
+    },
+  },
+  {
+    kind: "work",
+    rangeLabel: "2017 – 2024",
     period: "Oct 2017 – May 2024 · 6 yrs 8 mos",
+    title: { en: "Globant Pvt. Ltd.", ko: "Globant Pvt. Ltd." },
+    subtitle: { en: "Android Developer → Technical Lead", ko: "Android 개발자 → 기술 리드" },
+    location: { en: "Pune, India", ko: "인도, 푸네" },
     narrative: {
       en: "Grew from Android Developer to Technical Lead across fintech, digital banking, aviation, and sports — leading architecture decisions, mentoring engineers, and shipping products used across multiple countries.",
       ko: "Android 개발자에서 기술 리드로 성장하며 핀테크, 디지털 뱅킹, 항공, 스포츠 도메인에서 아키텍처 설계, 멘토링, 다국가 서비스 출시를 주도했습니다.",
@@ -88,10 +154,12 @@ const roles: RoleData[] = [
     ],
   },
   {
-    company: "Webonise Lab Pvt. Ltd.",
-    role: { en: "Android Developer", ko: "Android 개발자" },
-    location: { en: "Pune, India", ko: "인도, 푸네" },
+    kind: "work",
+    rangeLabel: "2016 – 2017",
     period: "Aug 2016 – Oct 2017 · 1 yr 3 mos",
+    title: { en: "Webonise Lab Pvt. Ltd.", ko: "Webonise Lab Pvt. Ltd." },
+    subtitle: { en: "Android Developer", ko: "Android 개발자" },
+    location: { en: "Pune, India", ko: "인도, 푸네" },
     narrative: {
       en: "First professional role — built and maintained modular Android apps end-to-end in an Agile environment, from requirements through production.",
       ko: "첫 직장에서 모듈화된 Android 앱을 요구사항부터 배포까지 엔드투엔드로 개발·유지보수했습니다.",
@@ -122,6 +190,9 @@ const roles: RoleData[] = [
     ],
   },
 ];
+
+const iconFor = (kind: EntryKind) =>
+  kind === "education" ? GraduationCap : kind === "independent" ? Code2 : Briefcase;
 
 const ProjectCard = ({ project }: { project: ProjectData }) => {
   const { lang } = useLang();
@@ -156,97 +227,148 @@ const Experience = () => {
   return (
     <section id="experience" className="py-24 bg-muted">
       <div className="container mx-auto px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl font-bold text-primary text-center mb-16"
+          transition={{ duration: 0.35 }}
+          className="text-center mb-14"
         >
-          {t("Work Experience", "경력 사항")}
-        </motion.h2>
+          <h2 className="text-3xl font-bold text-primary">
+            {t("Experience & Journey", "경력 및 여정")}
+          </h2>
+          <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            {t(
+              "A timeline of my professional experience, learning journey, and independent development.",
+              "저의 경력, 학습 과정 및 독립적인 개발 여정을 담은 타임라인입니다."
+            )}
+          </p>
+        </motion.div>
 
         <div className="max-w-4xl mx-auto relative">
-          {/* Vertical connector */}
-          <div className="absolute left-2 md:left-3 top-2 bottom-2 w-px bg-border" />
+          {/* Vertical timeline line */}
+          <div className="absolute left-[9px] md:left-[130px] top-3 bottom-3 w-px bg-gradient-to-b from-accent/50 via-border to-transparent" />
 
-          <div className="space-y-10">
-            {roles.map((role, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="relative pl-10 md:pl-14 group"
-              >
-                {/* Dot */}
-                <span className="absolute left-0 md:left-1 top-2 flex h-5 w-5 items-center justify-center">
-                  <span className="absolute inset-0 rounded-full bg-accent/20 group-hover:bg-accent/30 transition-colors" />
-                  <span className="relative h-2.5 w-2.5 rounded-full bg-accent ring-4 ring-muted" />
-                </span>
-
-                <div className="rounded-xl border border-border bg-card p-5 md:p-6 shadow-sm hover:shadow-md hover:border-accent/40 transition-all space-y-5">
-                  {/* Header */}
-                  <div className="space-y-1">
-                    <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-                      <h3 className="text-base md:text-lg font-bold text-foreground leading-tight">
-                        {lang === "en" ? role.role.en : role.role.ko}
-                      </h3>
-                      <div className="flex items-center gap-1.5 text-xs text-muted-foreground shrink-0">
-                        <Calendar size={12} />
-                        <span>{role.period}</span>
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs">
-                      <span className="text-sm font-semibold text-accent">{role.company}</span>
-                      <span className="flex items-center gap-1 text-muted-foreground">
-                        <MapPin size={11} />
-                        {lang === "en" ? role.location.en : role.location.ko}
+          <div className="space-y-10 md:space-y-12">
+            {entries.map((entry, i) => {
+              const Icon = iconFor(entry.kind);
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 14 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.35, delay: i * 0.05 }}
+                  className="relative pl-8 md:pl-0 group"
+                >
+                  <div className="md:grid md:grid-cols-[120px_1fr] md:gap-x-10">
+                    {/* Date column */}
+                    <div className="md:text-right md:pt-1.5">
+                      <span className="block text-xs font-semibold tracking-wide text-foreground/70">
+                        {entry.rangeLabel}
+                      </span>
+                      <span className="block text-[11px] text-muted-foreground mt-0.5">
+                        {entry.period}
                       </span>
                     </div>
-                  </div>
 
-                  {/* Narrative */}
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {lang === "en" ? role.narrative.en : role.narrative.ko}
-                  </p>
-
-                  {/* Highlights */}
-                  <ul className="space-y-2">
-                    {(lang === "en" ? role.highlights.en : role.highlights.ko).map((h, j) => (
-                      <li key={j} className="flex items-start gap-2.5 text-sm text-foreground/85">
-                        <Check size={14} className="text-accent shrink-0 mt-0.5" />
-                        <span className="leading-relaxed">{h}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Tech stack */}
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {role.stack.map((s) => (
+                    {/* Node */}
+                    <span className="absolute left-0 md:left-[121px] top-2 flex h-[18px] w-[18px] items-center justify-center">
                       <span
-                        key={s}
-                        className="inline-flex items-center rounded-md border border-border bg-background px-2 py-0.5 text-[11px] font-medium text-foreground/80"
-                      >
-                        {s}
-                      </span>
-                    ))}
-                  </div>
+                        className={`absolute inset-0 rounded-full transition-colors ${
+                          entry.current ? "bg-accent/25" : "bg-accent/10 group-hover:bg-accent/25"
+                        }`}
+                      />
+                      <span
+                        className={`relative rounded-full ring-4 ring-muted ${
+                          entry.current ? "h-3 w-3 bg-accent" : "h-2 w-2 bg-accent/70"
+                        }`}
+                      />
+                    </span>
 
-                  {/* Projects */}
-                  <div className="pt-2 border-t border-border/60">
-                    <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
-                      {t("Key Projects", "주요 프로젝트")}
-                    </h4>
-                    <div className="grid gap-3 md:grid-cols-2">
-                      {role.projects.map((proj, pi) => (
-                        <ProjectCard key={pi} project={proj} />
-                      ))}
+                    {/* Content */}
+                    <div
+                      className={`mt-3 md:mt-0 rounded-xl border p-5 md:p-6 shadow-sm transition-all space-y-5 ${
+                        entry.current
+                          ? "border-accent/40 bg-accent/[0.04] hover:shadow-md"
+                          : "border-border bg-card hover:border-accent/40 hover:shadow-md"
+                      }`}
+                    >
+                      {/* Header */}
+                      <div className="space-y-1.5">
+                        <div className="flex items-start gap-2.5">
+                          <Icon size={16} className="text-accent shrink-0 mt-1" />
+                          <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                            <h3 className="text-base md:text-lg font-bold text-foreground leading-tight">
+                              {lang === "en" ? entry.title.en : entry.title.ko}
+                            </h3>
+                            {entry.current && (
+                              <span className="inline-flex items-center rounded-full border border-accent/40 bg-accent/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-accent">
+                                {t("Current", "현재")}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs pl-[26px]">
+                          <span className="text-sm font-semibold text-accent">
+                            {lang === "en" ? entry.subtitle.en : entry.subtitle.ko}
+                          </span>
+                          {entry.location && (
+                            <span className="flex items-center gap-1 text-muted-foreground">
+                              <MapPin size={11} />
+                              {lang === "en" ? entry.location.en : entry.location.ko}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Narrative */}
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {lang === "en" ? entry.narrative.en : entry.narrative.ko}
+                      </p>
+
+                      {/* Highlights */}
+                      <ul className="space-y-2">
+                        {(lang === "en" ? entry.highlights.en : entry.highlights.ko).map((h, j) => (
+                          <li key={j} className="flex items-start gap-2.5 text-sm text-foreground/85">
+                            <Check size={14} className="text-accent shrink-0 mt-0.5" />
+                            <span className="leading-relaxed">{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {/* Tech stack */}
+                      {entry.stack && (
+                        <div className="flex flex-wrap gap-1.5 pt-1">
+                          {entry.stack.map((s) => (
+                            <span
+                              key={s}
+                              className="inline-flex items-center rounded-md border border-border bg-background px-2 py-0.5 text-[11px] font-medium text-foreground/80"
+                            >
+                              {s}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Projects */}
+                      {entry.projects && (
+                        <div className="pt-2 border-t border-border/60">
+                          <h4 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">
+                            {t("Key Projects", "주요 프로젝트")}
+                          </h4>
+                          <div className="grid gap-3 md:grid-cols-2">
+                            {entry.projects.map((proj, pi) => (
+                              <ProjectCard key={pi} project={proj} />
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
