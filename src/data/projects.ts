@@ -152,8 +152,20 @@ export const projects: ProjectData[] = [
       ],
     },
     featured: true,
-    inProgress: true,
+    status: {
+      en: "Closed Testing",
+      ko: "비공개 테스트 중",
+    },
+    statusDetail: {
+      en: "Development is complete and the app is currently in Google Play closed testing as part of the final validation process before public release.",
+      ko: "앱 개발은 완료되었으며 현재 정식 출시 전 최종 검증을 위해 Google Play 비공개 테스트를 진행하고 있습니다.",
+    },
+    statusMeta: {
+      en: "Google Play · Closed Testing",
+      ko: "Google Play · 비공개 테스트",
+    },
   },
+
   {
     slug: "expense-tracker",
     category: "android",
