@@ -42,7 +42,11 @@ export interface ProjectData {
   featured?: boolean;
   inProgress?: boolean;
   isLive?: boolean;
+  status?: { en: string; ko: string };
+  statusDetail?: { en: string; ko: string };
+  statusMeta?: { en: string; ko: string };
 }
+
 
 export const projects: ProjectData[] = [
   {
