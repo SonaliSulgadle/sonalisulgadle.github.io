@@ -56,22 +56,31 @@ const ProjectDetail = () => {
                 {t("Featured", "추천")}
               </Badge>
             )}
-            {project.inProgress && (
+            {project.status && (
               <Badge
                 variant="outline"
                 className="text-xs border-amber-500/50 bg-amber-500/10 text-amber-700 dark:text-amber-400"
               >
-                {t("Release Preparation", "출시 준비 중")}
+                {lang === "en" ? project.status.en : project.status.ko}
               </Badge>
             )}
+
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold text-primary mb-3 leading-tight">
             {name}
           </h1>
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            {tagline}
-          </p>
+          <div className="flex flex-wrap items-center gap-3 mb-6">
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              {tagline}
+            </p>
+            {project.statusMeta && (
+              <span className="text-xs text-muted-foreground px-2.5 py-1 rounded-full border border-border bg-muted/50">
+                {lang === "en" ? project.statusMeta.en : project.statusMeta.ko}
+              </span>
+            )}
+          </div>
+
 
 
           <section className="mb-10">
@@ -188,16 +197,17 @@ const ProjectDetail = () => {
               )
             ) : (
               <div className="rounded-lg border border-dashed border-border p-10 text-center text-sm text-muted-foreground bg-muted/30">
-                {project.inProgress
+                {project.status
                   ? t(
-                      "Visuals coming soon — app is in active development.",
-                      "비주얼 준비 중 — 앱이 활발히 개발 중입니다."
+                      "Visuals coming soon — app is currently in closed testing.",
+                      "비주얼 준비 중 — 앱이 현재 비공개 테스트 중입니다."
                     )
                   : t(
                       "This project is a core engine module without a dedicated UI.",
                       "이 프로젝트는 전용 UI가 없는 코어 엔진 모듈입니다."
                     )}
               </div>
+
             )}
           </section>
 

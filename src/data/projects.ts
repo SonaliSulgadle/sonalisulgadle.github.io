@@ -42,7 +42,11 @@ export interface ProjectData {
   featured?: boolean;
   inProgress?: boolean;
   isLive?: boolean;
+  status?: { en: string; ko: string };
+  statusDetail?: { en: string; ko: string };
+  statusMeta?: { en: string; ko: string };
 }
+
 
 export const projects: ProjectData[] = [
   {
@@ -107,9 +111,10 @@ export const projects: ProjectData[] = [
       ko: "한국 거주 외국인을 위한 AI 기반 생활 해결사.",
     },
     desc: {
-      en: "A production-ready Android app that helps foreigners in South Korea navigate daily life confusion — from trash sorting and appliance instructions to transport and medical clinics — using AI-powered photo and text analysis with structured, step-by-step guidance.\n\nDevelopment is complete and the app is currently in release preparation, with final testing and Google Play release issues being addressed.",
-      ko: "쓰레기 분리수거, 가전제품 사용법, 교통, 병원 등 한국 거주 외국인이 일상에서 겪는 혼란을 AI 기반 사진 및 텍스트 분석과 단계별 가이드로 해결해주는 프로덕션 수준의 Android 앱입니다.\n\n앱 개발은 완료되었으며 현재 최종 테스트와 Google Play 출시 과정에서 발생한 문제를 해결하며 출시를 준비하고 있습니다.",
+      en: "A production-ready Android app that helps foreigners in South Korea navigate daily life confusion — from trash sorting and appliance instructions to transport and medical clinics — using AI-powered photo and text analysis with structured, step-by-step guidance.\n\nDevelopment is complete and the app is currently in Google Play closed testing as part of the final validation process before public release.",
+      ko: "쓰레기 분리수거, 가전제품 사용법, 교통, 병원 등 한국 거주 외국인이 일상에서 겪는 혼란을 AI 기반 사진 및 텍스트 분석과 단계별 가이드로 해결해주는 프로덕션 수준의 Android 앱입니다.\n\n앱 개발은 완료되었으며 현재 정식 출시 전 최종 검증을 위해 Google Play 비공개 테스트를 진행하고 있습니다.",
     },
+
     highlights: {
       en: [
         "MVVM architecture combined with MVI-style state management to ensure predictable, unidirectional UI state and better scalability",
@@ -147,8 +152,20 @@ export const projects: ProjectData[] = [
       ],
     },
     featured: true,
-    inProgress: true,
+    status: {
+      en: "Closed Testing",
+      ko: "비공개 테스트 중",
+    },
+    statusDetail: {
+      en: "Development is complete and the app is currently in Google Play closed testing as part of the final validation process before public release.",
+      ko: "앱 개발은 완료되었으며 현재 정식 출시 전 최종 검증을 위해 Google Play 비공개 테스트를 진행하고 있습니다.",
+    },
+    statusMeta: {
+      en: "Google Play · Closed Testing",
+      ko: "Google Play · 비공개 테스트",
+    },
   },
+
   {
     slug: "expense-tracker",
     category: "android",

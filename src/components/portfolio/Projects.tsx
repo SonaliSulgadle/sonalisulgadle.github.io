@@ -63,14 +63,15 @@ const Projects = () => {
                     {t("Featured", "추천")}
                   </Badge>
                 )}
-                {p.inProgress && (
+                {p.status && (
                   <Badge
                     variant="outline"
                     className="text-[10px] px-1.5 py-0 border-amber-500/50 bg-amber-500/10 text-amber-700 dark:text-amber-400"
                   >
-                    {t("Release Preparation", "출시 준비 중")}
+                    {lang === "en" ? p.status.en : p.status.ko}
                   </Badge>
                 )}
+
               </div>
             </div>
 
