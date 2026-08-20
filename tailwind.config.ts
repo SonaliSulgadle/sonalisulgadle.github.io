@@ -14,8 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "Noto Sans KR", "sans-serif"],
+        sans: ["Pretendard", "Pretendard Variable", "Inter", "Noto Sans KR", "sans-serif"],
       },
+
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
