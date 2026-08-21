@@ -1,6 +1,7 @@
 import { useLang } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import { Users, Sparkles } from "lucide-react";
+import SectionHeader from "./SectionHeader";
 
 interface CommunityItem {
   title: { en: string; ko: string };
@@ -42,36 +43,32 @@ const Community = () => {
   return (
     <section id="community" className="py-24 bg-background">
       <div className="container mx-auto px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl font-bold text-primary text-center mb-16"
-        >
-          {t("Community & Leadership", "커뮤니티 및 리더십")}
-        </motion.h2>
+        <SectionHeader
+          title={t("Community & Leadership", "커뮤니티 및 리더십")}
+          className="mb-14"
+        />
 
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-5">
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
           {items.map((item, i) => {
             const Icon = item.icon;
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="rounded-xl border border-border bg-card p-5 shadow-sm hover:shadow-md hover:border-accent/60 transition-all"
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ delay: i * 0.08, duration: 0.45 }}
+                className="rounded-2xl border border-border border-l-4 border-l-accent bg-surface p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-warm"
               >
                 <div className="flex items-start gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent/10">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/10">
                     <Icon className="h-5 w-5 text-accent" />
                   </div>
                   <div className="space-y-1.5">
-                    <h3 className="font-semibold text-foreground leading-tight">
+                    <h3 className="font-bold text-foreground leading-tight">
                       {lang === "en" ? item.title.en : item.title.ko}
                     </h3>
-                    <p className="text-[11px] uppercase tracking-wider text-muted-foreground/70">
+                    <p className="text-[11px] uppercase tracking-wider text-muted-foreground">
                       {lang === "en" ? item.meta.en : item.meta.ko}
                     </p>
                     <p className="text-sm text-muted-foreground leading-relaxed pt-0.5">
