@@ -1,6 +1,7 @@
 import { useLang } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import { MapPin, Check, Briefcase, GraduationCap, Code2 } from "lucide-react";
+import SectionHeader from "./SectionHeader";
 
 interface ProjectData {
   name: string;
@@ -197,7 +198,7 @@ const iconFor = (kind: EntryKind) =>
 const ProjectCard = ({ project }: { project: ProjectData }) => {
   const { lang } = useLang();
   return (
-    <div className="rounded-lg border border-border bg-background/60 p-4 space-y-2 hover:border-accent/50 transition-colors">
+    <div className="rounded-xl border border-border bg-background p-4 space-y-2 transition-all duration-200 hover:border-accent/50 hover:-translate-y-0.5">
       <div>
         <h5 className="text-sm font-semibold text-foreground">{project.name}</h5>
         <p className="text-[11px] font-medium text-accent mt-0.5">
@@ -211,7 +212,7 @@ const ProjectCard = ({ project }: { project: ProjectData }) => {
         {project.tech.map((t) => (
           <span
             key={t}
-            className="inline-flex items-center rounded-md border border-border bg-card px-2 py-0.5 text-[10px] font-medium text-foreground/80"
+            className="inline-flex items-center rounded-md border border-border bg-surface px-2 py-0.5 text-[10px] font-medium text-foreground/80"
           >
             {t}
           </span>
@@ -221,50 +222,66 @@ const ProjectCard = ({ project }: { project: ProjectData }) => {
   );
 };
 
+const kindStyles: Record<EntryKind, { dot: string; border: string; badge: string; text: string; label: { en: string; ko: string } }> = {
+  work: {
+    dot: "bg-terracotta",
+    border: "border-l-terracotta",
+    badge: "border-terracotta/40 bg-terracotta/10 text-terracotta",
+    text: "text-terracotta",
+    label: { en: "Work", ko: "경력" },
+  },
+  education: {
+    dot: "bg-clay",
+    border: "border-l-clay",
+    badge: "border-clay/40 bg-clay/10 text-clay",
+    text: "text-clay",
+    label: { en: "Education", ko: "학력" },
+  },
+  independent: {
+    dot: "bg-sage",
+    border: "border-l-sage",
+    badge: "border-sage/40 bg-sage/10 text-sage",
+    text: "text-sage",
+    label: { en: "Independent", ko: "독립 활동" },
+  },
+};
+
 const Experience = () => {
   const { lang, t } = useLang();
 
   return (
-    <section id="experience" className="py-24 bg-muted">
+    <section id="experience" className="py-24 bg-surface">
       <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.35 }}
-          className="text-center mb-14"
-        >
-          <h2 className="text-3xl font-bold text-primary">
-            {t("Experience & Journey", "경력 및 여정")}
-          </h2>
-          <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            {t(
-              "A timeline of my professional experience, learning journey, and independent development.",
-              "저의 경력, 학습 과정 및 독립적인 개발 여정을 담은 타임라인입니다."
-            )}
-          </p>
-        </motion.div>
+        <SectionHeader
+          title={t("Experience & Journey", "경력 및 여정")}
+          subtitle={t(
+            "A timeline of my professional experience, learning journey, and independent development.",
+            "저의 경력, 학습 과정 및 독립적인 개발 여정을 담은 타임라인입니다."
+          )}
+          className="mb-14"
+        />
 
         <div className="max-w-4xl mx-auto relative">
-          {/* Vertical timeline line */}
-          <div className="absolute left-[9px] md:left-[130px] top-3 bottom-3 w-px bg-gradient-to-b from-accent/50 via-border to-transparent" />
+          {/* Strong vertical timeline line */}
+          <div className="absolute left-[9px] md:left-[130px] top-3 bottom-3 w-[3px] rounded-full bg-accent/70" />
 
           <div className="space-y-10 md:space-y-12">
             {entries.map((entry, i) => {
               const Icon = iconFor(entry.kind);
+              const ks = kindStyles[entry.kind];
               return (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.35, delay: i * 0.05 }}
+                  transition={{ duration: 0.45, delay: i * 0.05 }}
                   className="relative pl-8 md:pl-0 group"
                 >
                   <div className="md:grid md:grid-cols-[120px_1fr] md:gap-x-10">
-                    {/* Date column */}
+                    {/* Date column — floated left of the line */}
                     <div className="md:text-right md:pt-1.5">
-                      <span className="block text-xs font-semibold tracking-wide text-foreground/70">
+                      <span className="block text-sm font-bold tracking-wide text-accent">
                         {entry.rangeLabel}
                       </span>
                       <span className="block text-[11px] text-muted-foreground mt-0.5">
@@ -273,35 +290,27 @@ const Experience = () => {
                     </div>
 
                     {/* Node */}
-                    <span className="absolute left-0 md:left-[121px] top-2 flex h-[18px] w-[18px] items-center justify-center">
-                      <span
-                        className={`absolute inset-0 rounded-full transition-colors ${
-                          entry.current ? "bg-accent/25" : "bg-accent/10 group-hover:bg-accent/25"
-                        }`}
-                      />
-                      <span
-                        className={`relative rounded-full ring-4 ring-muted ${
-                          entry.current ? "h-3 w-3 bg-accent" : "h-2 w-2 bg-accent/70"
-                        }`}
-                      />
+                    <span className="absolute left-0 md:left-[120px] top-2 flex h-[20px] w-[20px] items-center justify-center">
+                      <span className={`relative h-[14px] w-[14px] rounded-full ring-4 ring-surface transition-transform duration-200 group-hover:scale-110 ${ks.dot}`} />
                     </span>
 
                     {/* Content */}
                     <div
-                      className={`mt-3 md:mt-0 rounded-xl border p-5 md:p-6 shadow-sm transition-all space-y-5 ${
-                        entry.current
-                          ? "border-accent/40 bg-accent/[0.04] hover:shadow-md"
-                          : "border-border bg-card hover:border-accent/40 hover:shadow-md"
-                      }`}
+                      className={`mt-3 md:mt-0 rounded-2xl border border-border border-l-4 ${ks.border} bg-surface p-5 md:p-6 shadow-sm space-y-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-warm`}
                     >
                       {/* Header */}
                       <div className="space-y-1.5">
                         <div className="flex items-start gap-2.5">
-                          <Icon size={16} className="text-accent shrink-0 mt-1" />
+                          <Icon size={16} className={`shrink-0 mt-1 ${ks.text}`} />
                           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                             <h3 className="text-base md:text-lg font-bold text-foreground leading-tight">
                               {lang === "en" ? entry.title.en : entry.title.ko}
                             </h3>
+                            <span
+                              className={`inline-flex items-center rounded-full border px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider ${ks.badge}`}
+                            >
+                              {lang === "en" ? ks.label.en : ks.label.ko}
+                            </span>
                             {entry.current && (
                               <span className="inline-flex items-center rounded-full border border-accent/40 bg-accent/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-accent">
                                 {t("Current", "현재")}
@@ -309,6 +318,7 @@ const Experience = () => {
                             )}
                           </div>
                         </div>
+
                         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs pl-[26px]">
                           <span className="text-sm font-semibold text-accent">
                             {lang === "en" ? entry.subtitle.en : entry.subtitle.ko}

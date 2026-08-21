@@ -51,7 +51,7 @@ const ProjectDetail = () => {
               </Badge>
             )}
             {project.featured && (
-              <Badge className="text-xs gap-1 bg-primary/10 text-primary border border-primary/20 hover:bg-primary/15">
+              <Badge className="text-xs gap-1 bg-accent/10 text-accent border border-accent/20 hover:bg-accent/15">
                 <Star size={12} className="fill-primary" />
                 {t("Featured", "추천")}
               </Badge>
@@ -67,7 +67,7 @@ const ProjectDetail = () => {
 
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold text-primary mb-3 leading-tight">
+          <h1 className="text-3xl md:text-4xl font-extrabold text-foreground mb-3 leading-tight">
             {name}
           </h1>
           <div className="flex flex-wrap items-center gap-3 mb-6">
@@ -84,7 +84,7 @@ const ProjectDetail = () => {
 
 
           <section className="mb-10">
-            <h2 className="text-xl font-semibold text-primary mb-3">
+            <h2 className="text-xl font-bold text-foreground mb-3">
               {t("Overview", "개요")}
             </h2>
             <div className="text-muted-foreground leading-relaxed space-y-4">
@@ -95,7 +95,7 @@ const ProjectDetail = () => {
           </section>
 
           <section className="mb-10">
-            <h2 className="text-xl font-semibold text-primary mb-3">
+            <h2 className="text-xl font-bold text-foreground mb-3">
               {t("Key Highlights", "주요 기능")}
             </h2>
             <ul className="space-y-2">
@@ -109,7 +109,7 @@ const ProjectDetail = () => {
           </section>
 
           <section className="mb-10">
-            <h2 className="text-xl font-semibold text-primary mb-3">
+            <h2 className="text-xl font-bold text-foreground mb-3">
               {t("Tech Stack", "기술 스택")}
             </h2>
             <div className="flex flex-wrap gap-2">
@@ -122,20 +122,20 @@ const ProjectDetail = () => {
           </section>
 
           <section className="mb-10">
-            <h2 className="text-xl font-semibold text-primary mb-3">
+            <h2 className="text-xl font-bold text-foreground mb-3">
               {t("My Role", "담당 역할")}
             </h2>
             <p className="text-muted-foreground leading-relaxed">{role}</p>
           </section>
 
           <section className="mb-10">
-            <h2 className="text-xl font-semibold text-primary mb-3">
+            <h2 className="text-xl font-bold text-foreground mb-3">
               {t("Engineering Decisions & Challenges", "엔지니어링 결정 및 도전 과제")}
             </h2>
             <ul className="space-y-3">
               {challenges.map((c, i) => (
                 <li key={i} className="flex items-start gap-3 text-muted-foreground leading-relaxed">
-                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
                   <span>{c}</span>
                 </li>
               ))}
@@ -143,7 +143,7 @@ const ProjectDetail = () => {
           </section>
 
           <section className="mb-10">
-            <h2 className="text-xl font-semibold text-primary mb-4">
+            <h2 className="text-xl font-bold text-foreground mb-4">
               {t("Visuals", "비주얼")}
             </h2>
             {project.gallery.length > 0 ? (
