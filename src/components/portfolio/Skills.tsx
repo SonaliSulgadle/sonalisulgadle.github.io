@@ -107,25 +107,34 @@ const categories: SkillCategory[] = [
   },
 ];
 
+const primaryStack = [
+  "Kotlin",
+  "Jetpack Compose",
+  "Clean Architecture",
+  "Coroutines & Flow",
+  "MVVM / MVI",
+  "Hilt",
+];
+
 const blockStyles: Record<Emphasis, string> = {
-  core: "border-primary/25 bg-primary/[0.035] hover:border-primary/40 md:p-6",
-  strong: "border-border hover:border-primary/30",
-  accent: "border-accent/25 bg-accent/[0.03] hover:border-accent/40",
-  neutral: "border-border/70 hover:border-border",
+  core: "border-accent/30 bg-card hover:border-accent/50 md:p-6",
+  strong: "border-border bg-card hover:border-accent/40",
+  accent: "border-accent/25 bg-card hover:border-accent/45",
+  neutral: "border-border bg-card hover:border-accent/30",
 };
 
 const iconStyles: Record<Emphasis, string> = {
-  core: "text-primary",
+  core: "text-accent",
   strong: "text-foreground/70",
   accent: "text-accent",
   neutral: "text-muted-foreground",
 };
 
 const chipStyles: Record<Emphasis, string> = {
-  core: "border-primary/20 bg-primary/[0.05] text-foreground hover:border-primary/35 hover:bg-primary/[0.09]",
-  strong: "border-border bg-muted/50 text-foreground/90 hover:border-primary/25 hover:bg-muted",
-  accent: "border-accent/20 bg-accent/[0.05] text-foreground/90 hover:border-accent/35 hover:bg-accent/[0.09]",
-  neutral: "border-border/80 bg-muted/40 text-foreground/85 hover:border-border hover:bg-muted",
+  core: "border-accent/25 bg-accent/[0.08] text-foreground hover:border-accent/45 hover:bg-accent/[0.14]",
+  strong: "border-border bg-surface text-foreground/90 hover:border-accent/30",
+  accent: "border-accent/20 bg-accent/[0.06] text-foreground/90 hover:border-accent/40 hover:bg-accent/[0.12]",
+  neutral: "border-border bg-surface text-foreground/85 hover:border-accent/30",
 };
 
 const Skills = () => {
@@ -134,22 +143,43 @@ const Skills = () => {
   return (
     <section id="skills" className="py-24 bg-background">
       <div className="container mx-auto px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl font-bold text-primary text-center mb-3"
-        >
-          {t("Skills & Tech Stack", "기술 스택")}
-        </motion.h2>
-        <p className="text-center text-sm text-muted-foreground mb-14">
-          {t(
+        <SectionHeader
+          title={t("Skills & Tech Stack", "기술 스택")}
+          subtitle={t(
             "Tools and technologies I work with day-to-day.",
             "일상적으로 사용하는 도구와 기술입니다.",
           )}
-        </p>
+          className="mb-12"
+        />
+
+        {/* Primary Stack */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="max-w-5xl mx-auto mb-10 rounded-2xl border border-accent/30 bg-card p-6 shadow-warm"
+        >
+          <div className="flex items-center gap-2.5 mb-4">
+            <Sparkles className="h-4 w-4 text-accent" aria-hidden="true" />
+            <h3 className="text-sm font-bold uppercase tracking-wider text-accent">
+              {t("Primary Stack", "핵심 스택")}
+            </h3>
+          </div>
+          <ul className="flex flex-wrap gap-2.5">
+            {primaryStack.map((skill) => (
+              <li
+                key={skill}
+                className="inline-flex items-center rounded-full border border-accent/40 bg-accent/10 px-4 py-2 text-sm font-medium text-accent transition-all duration-200 hover:bg-accent/[0.18] hover:-translate-y-0.5"
+              >
+                {skill}
+              </li>
+            ))}
+          </ul>
+        </motion.div>
 
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
+
           {categories.map((cat, ci) => {
             const Icon = cat.icon;
             return (
