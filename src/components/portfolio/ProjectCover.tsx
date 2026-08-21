@@ -67,13 +67,13 @@ const ProjectCover = ({ project, className = "", size = "card" }: Props) => {
       />
 
       {/* Soft glow accent */}
-      <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-primary/10 blur-3xl" />
+      <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-accent/10 blur-3xl" />
 
       {/* Overlay text */}
       <div className="absolute inset-0 flex flex-col justify-end p-4">
         <div className="flex items-end justify-between gap-3">
           <span
-            className={`font-semibold text-primary leading-tight line-clamp-1 ${
+            className={`font-semibold text-foreground leading-tight line-clamp-1 ${
               size === "header" ? "text-base md:text-lg" : "text-sm"
             }`}
           >
