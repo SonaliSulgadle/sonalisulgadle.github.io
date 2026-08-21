@@ -1,6 +1,7 @@
 import { useLang } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import { MapPin, Check, Briefcase, GraduationCap, Code2 } from "lucide-react";
+import SectionHeader from "./SectionHeader";
 
 interface ProjectData {
   name: string;
@@ -197,7 +198,7 @@ const iconFor = (kind: EntryKind) =>
 const ProjectCard = ({ project }: { project: ProjectData }) => {
   const { lang } = useLang();
   return (
-    <div className="rounded-lg border border-border bg-background/60 p-4 space-y-2 hover:border-accent/50 transition-colors">
+    <div className="rounded-xl border border-border bg-background p-4 space-y-2 transition-all duration-200 hover:border-accent/50 hover:-translate-y-0.5">
       <div>
         <h5 className="text-sm font-semibold text-foreground">{project.name}</h5>
         <p className="text-[11px] font-medium text-accent mt-0.5">
@@ -211,7 +212,7 @@ const ProjectCard = ({ project }: { project: ProjectData }) => {
         {project.tech.map((t) => (
           <span
             key={t}
-            className="inline-flex items-center rounded-md border border-border bg-card px-2 py-0.5 text-[10px] font-medium text-foreground/80"
+            className="inline-flex items-center rounded-md border border-border bg-surface px-2 py-0.5 text-[10px] font-medium text-foreground/80"
           >
             {t}
           </span>
