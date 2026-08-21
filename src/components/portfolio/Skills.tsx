@@ -12,6 +12,7 @@ import {
   Shuffle,
   type LucideIcon,
 } from "lucide-react";
+import SectionHeader from "./SectionHeader";
 
 type Emphasis = "core" | "strong" | "accent" | "neutral";
 
@@ -189,7 +190,7 @@ const Skills = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: Math.min(ci * 0.04, 0.3), duration: 0.35 }}
-                className={`rounded-xl border p-5 transition-all duration-200 hover:-translate-y-0.5 ${blockStyles[cat.emphasis]}`}
+                className={`rounded-2xl border p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-warm ${blockStyles[cat.emphasis]}`}
               >
                 <div className="flex items-center gap-2.5">
                   <Icon
