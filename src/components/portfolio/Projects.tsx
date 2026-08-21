@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { projects, type ProjectCategory, type ProjectData } from "@/data/projects";
+import SectionHeader from "./SectionHeader";
 
 const Projects = () => {
   const { lang, t } = useLang();
@@ -14,8 +15,11 @@ const Projects = () => {
     window.scrollTo(0, 0);
   };
 
+  const featured = projects.find((p) => p.slug === "puri");
   const webProjects = projects.filter((p) => p.category === "web");
-  const androidProjects = projects.filter((p) => p.category === "android");
+  const androidProjects = projects.filter(
+    (p) => p.category === "android" && p.slug !== "puri"
+  );
 
   const renderCard = (p: ProjectData, i: number) => {
     const displayName =
@@ -31,20 +35,18 @@ const Projects = () => {
         transition={{ delay: i * 0.05 }}
       >
         <Card
-          className={`group relative h-full flex flex-col overflow-hidden border shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 ${
-            isLive
-              ? "border-accent/50 ring-1 ring-accent/20 hover:border-accent"
-              : "border-border hover:border-primary/50"
+          className={`group relative h-full flex flex-col overflow-hidden rounded-2xl border bg-card shadow-sm transition-all duration-200 hover:shadow-warm hover:-translate-y-1 ${
+            isLive ? "border-accent/50 ring-1 ring-accent/20" : "border-border"
           }`}
         >
-          <div
+          <span
             aria-hidden
-            className="pointer-events-none absolute -top-px -right-px h-16 w-16 bg-gradient-to-bl from-primary/10 via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            className="pointer-events-none absolute inset-x-0 top-0 h-[2px] scale-x-0 bg-accent transition-transform duration-200 group-hover:scale-x-100"
           />
 
           <CardContent className="p-5 flex flex-col flex-1">
             <div className="flex items-start justify-between gap-2 mb-2">
-              <h3 className="text-base font-semibold text-primary leading-snug line-clamp-1">
+              <h3 className="text-base font-bold text-foreground leading-snug line-clamp-1">
                 {displayName}
               </h3>
               <div className="flex items-center gap-1.5 shrink-0">
@@ -58,8 +60,8 @@ const Projects = () => {
                   </Badge>
                 )}
                 {p.featured && (
-                  <Badge className="text-[10px] gap-1 px-1.5 py-0 bg-primary/10 text-primary border border-primary/20 hover:bg-primary/15">
-                    <Star size={9} className="fill-primary" />
+                  <Badge className="text-[10px] gap-1 px-1.5 py-0 bg-accent/10 text-accent border border-accent/20 hover:bg-accent/15">
+                    <Star size={9} className="fill-accent" />
                     {t("Featured", "추천")}
                   </Badge>
                 )}
@@ -138,7 +140,7 @@ const Projects = () => {
                 asChild
                 size="sm"
                 variant="ghost"
-                className="h-9 px-2 text-xs text-muted-foreground hover:text-primary group/link"
+                className="h-9 px-2 text-xs text-muted-foreground hover:text-accent group/link"
               >
                 <Link
                   to={`/projects/${p.slug}`}
@@ -167,7 +169,7 @@ const Projects = () => {
   ) => (
     <div className="mb-14 last:mb-0">
       <div className="max-w-6xl mx-auto mb-6 flex items-baseline gap-3">
-        <h3 className="text-sm font-semibold uppercase tracking-wider text-primary">
+        <h3 className="text-sm font-bold uppercase tracking-wider text-accent">
           {t(title, titleKo)}
         </h3>
         <span className="h-px flex-1 bg-border" />
@@ -175,7 +177,7 @@ const Projects = () => {
           {items.length} {t("project" + (items.length === 1 ? "" : "s"), "프로젝트")}
         </span>
       </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+      <div className="grid sm:grid-cols-2 gap-5 max-w-6xl mx-auto">
         {items.map((p, i) => renderCard(p, i))}
       </div>
     </div>
@@ -184,26 +186,16 @@ const Projects = () => {
   return (
     <section id="projects" className="py-24 bg-background">
       <div className="container mx-auto px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl font-bold text-primary text-center mb-4"
-        >
-          {t("Projects", "프로젝트")}
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-muted-foreground text-center mb-14 max-w-2xl mx-auto"
-        >
-          {t(
+        <SectionHeader
+          title={t("Projects", "프로젝트")}
+          subtitle={t(
             "A selection of work spanning full-stack web and Android — focused on architecture, performance, and AI integration.",
             "풀스택 웹과 Android에 걸친 작업 모음으로, 아키텍처·성능·AI 통합에 중점을 둡니다."
           )}
-        </motion.p>
+          className="mb-14"
+        />
+
+        {featured && renderFeatured(featured)}
 
         {webProjects.length > 0 && renderGroup("Web", "웹", webProjects, "web")}
         {androidProjects.length > 0 && renderGroup("Android", "안드로이드", androidProjects, "android")}
