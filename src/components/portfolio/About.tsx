@@ -1,11 +1,12 @@
 import { useLang } from "@/context/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
+import SectionHeader from "./SectionHeader";
 
 const About = () => {
   const { lang, t } = useLang();
 
   return (
-    <section id="about" className="py-24 bg-muted">
+    <section id="about" className="py-24 bg-surface">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -14,9 +15,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="max-w-5xl mx-auto"
         >
-          <h2 className="text-3xl font-bold text-primary mb-12 text-center">
-            {t("About Me", "소개")}
-          </h2>
+          <SectionHeader title={t("About Me", "소개")} className="mb-12" />
 
           <div className="max-w-3xl mx-auto">
             <AnimatePresence mode="wait">

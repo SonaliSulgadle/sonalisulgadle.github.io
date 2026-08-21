@@ -2,6 +2,7 @@ import { useLang } from "@/context/LanguageContext";
 import { motion } from "framer-motion";
 import { GraduationCap, Award, Star, Globe } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import SectionHeader from "./SectionHeader";
 
 interface EduItem {
   school: string;
@@ -71,16 +72,9 @@ const Education = () => {
   const { lang, t } = useLang();
 
   return (
-    <section id="education" className="py-24 bg-muted">
+    <section id="education" className="py-24 bg-surface">
       <div className="container mx-auto px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl font-bold text-primary text-center mb-16"
-        >
-          {t("Education & Languages", "학력 & 언어")}
-        </motion.h2>
+        <SectionHeader title={t("Education & Languages", "학력 & 언어")} className="mb-14" />
 
         <div className="max-w-4xl mx-auto space-y-14">
           {/* Education Timeline */}
@@ -105,7 +99,7 @@ const Education = () => {
                   >
                     <div className="absolute left-[-5px] top-2 w-[10px] h-[10px] rounded-full bg-accent border-2 border-background hidden md:block" />
 
-                    <div className="rounded-xl border border-border bg-card p-5 shadow-sm space-y-1.5">
+                    <div className="rounded-2xl border border-border border-l-4 border-l-accent bg-card p-5 shadow-sm space-y-1.5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-warm">
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
                         <h4 className="font-semibold text-foreground">{edu.school}</h4>
                         <span className="text-xs text-muted-foreground font-medium">{edu.period}</span>
